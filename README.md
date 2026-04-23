@@ -51,4 +51,5 @@ La policy di studio consigliata è: **ufficiale per regole/capability, community
 ## Autore
 
 Christian Quintino De Luca  
+Email: info@rthitalia.com  
 GitHub: [rthgit](https://github.com/rthgit)

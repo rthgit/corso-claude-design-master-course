@@ -106,4 +106,5 @@ To create a downloadable version:
 ## Contact
 
 Author: Christian Quintino De Luca  
+Email: info@rthitalia.com  
 GitHub: [rthgit](https://github.com/rthgit)

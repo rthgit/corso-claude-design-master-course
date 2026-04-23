@@ -106,4 +106,5 @@ Per ottenere la versione scaricabile:
 ## Contatti
 
 Autore: Christian Quintino De Luca  
+Email: info@rthitalia.com  
 GitHub: [rthgit](https://github.com/rthgit)
