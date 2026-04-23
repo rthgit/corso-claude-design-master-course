@@ -57,7 +57,6 @@ This English section contains:
 
 - Full course (Italian HTML): [../corso_claude_design_expert.html](../corso_claude_design_expert.html)
 - Full course (English HTML): [../corso_claude_design_expert_en.html](../corso_claude_design_expert_en.html)
-- Original source drafts: [../corso_parte1.md](../corso_parte1.md), [../corso_parte2.md](../corso_parte2.md)
 
 ---
 

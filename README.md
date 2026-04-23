@@ -15,7 +15,6 @@ Questo repository contiene un percorso completo, dalle basi fino al livello expe
 - `en/README.md` → complete guide in English
 - `corso_claude_design_expert.html` → corso completo in italiano (print-ready PDF)
 - `corso_claude_design_expert_en.html` → complete English course (print-ready PDF)
-- `corso_parte1.md` / `corso_parte2.md` → bozze sorgente originali in italiano
 
 ---
 

@@ -57,7 +57,6 @@ Questa sezione italiana contiene:
 
 - Corso completo (HTML IT): [../corso_claude_design_expert.html](../corso_claude_design_expert.html)
 - Corso completo (HTML EN): [../corso_claude_design_expert_en.html](../corso_claude_design_expert_en.html)
-- Sorgenti originali: [../corso_parte1.md](../corso_parte1.md), [../corso_parte2.md](../corso_parte2.md)
 
 ---
 
