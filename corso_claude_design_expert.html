@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Design - Corso Completo Definitivo (Base -> Expert)</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #111924;
+      --surface-2: #172334;
+      --text: #f5f8ff;
+      --muted: #c8d5ef;
+      --accent: #ffd166;
+      --accent-2: #8bd3ff;
+      --border: #2a3b55;
+      --ok: #98e49e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #0b0f14 0%, #0f1825 100%);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e2e44 0%, #162233 55%, #15202f 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .hero p { margin: 8px 0; color: var(--muted); }
+
+    .badge {
+      display: inline-block;
+      margin-right: 8px;
+      margin-top: 8px;
+      background: #24344d;
+      border: 1px solid #3f5473;
+      color: #eff5ff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #1d1400;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn.secondary {
+      background: #263a54;
+      color: #eef6ff;
+      border: 1px solid #415a7e;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3, h4 {
+      line-height: 1.25;
+      margin: 1.05em 0 0.55em;
+    }
+
+    h1 { font-size: 1.9rem; }
+    h2 {
+      font-size: 1.45rem;
+      border-bottom: 1px solid #2a3b55;
+      padding-bottom: 8px;
+      color: #fff4d0;
+    }
+    h3 { font-size: 1.2rem; color: #dbe9ff; }
+
+    p, li { color: #e9f0ff; }
+    ul, ol { margin: 0.4em 0 1.1em 1.3em; padding: 0; }
+    li { margin: 0.32em 0; }
+
+    blockquote {
+      margin: 1em 0;
+      padding: 10px 14px;
+      border-left: 4px solid var(--accent-2);
+      background: #132437;
+      border-radius: 6px;
+      color: #eaf6ff;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #2a3b55;
+      margin: 24px 0;
+    }
+
+    code {
+      background: #0d141f;
+      border: 1px solid #2a3b55;
+      color: #ffe5a8;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-family: "Consolas", "SFMono-Regular", Menlo, Monaco, monospace;
+      font-size: 0.93em;
+    }
+
+    pre {
+      overflow: auto;
+      background: #07101a;
+      border: 1px solid #2b3f5d;
+      border-radius: 10px;
+      padding: 12px;
+      color: #f3f8ff;
+    }
+
+    pre code { border: none; background: transparent; padding: 0; color: inherit; }
+
+    .table-wrap { overflow-x: auto; margin: 12px 0 16px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 560px;
+      background: #101a28;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid #2a3b55;
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th { background: #1a2a40; color: #fff0be; }
+
+    a { color: #a4d9ff; }
+
+    .sources li { margin-bottom: .55em; }
+    .muted { color: var(--muted); }
+    .ok { color: var(--ok); font-weight: 700; }
+
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background: white !important; color: #111 !important; }
+      .hero, .panel { background: white !important; border-color: #bbb !important; box-shadow: none !important; }
+      .actions, .screen-only { display: none !important; }
+      h2 { color: #1a1a1a; border-bottom-color: #ccc; }
+      p, li, blockquote { color: #111 !important; }
+      blockquote { background: #f6f8fb !important; border-left-color: #1f5a96; }
+      code, pre { background: #f5f7fa !important; border-color: #c9d2df !important; color: #111 !important; }
+      table, th, td { border-color: #bbb !important; color: #111 !important; }
+      th { background: #eceff4 !important; }
+      a { color: #0b4a88 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>Claude Design: Corso Definitivo dal Livello Base all'Expert</h1>
+      <p>Versione completa consolidata dai file <code>corso_parte1.md</code> e <code>corso_parte2.md>, arricchita con verifica online su fonti ufficiali + community/dev.</p>
+      <div>
+        <span class="badge">Aggiornato: 23 Aprile 2026</span>
+        <span class="badge">Ricerca ufficiale + non ufficiale</span>
+        <span class="badge">Formato ottimizzato per PDF</span>
+      </div>
+      <div class="actions screen-only">
+        <button class="btn" onclick="window.print()">Scarica/Stampa in PDF</button>
+        <a class="btn secondary" href="#fonti">Vai alle fonti</a>
+        <a class="btn secondary" href="#contenuto">Vai al corso</a>
+      </div>
+    </header>
+
+    <section class="panel" id="metodo-verifica">
+      <h2>Metodo di Verifica (Trasparenza Fonti)</h2>
+      <p class="muted">Per questo corso, i contenuti sono organizzati così:</p>
+      <ul>
+        <li><span class="ok">Confermato ufficialmente:</span> solo dati presenti in annunci Anthropic/Canva o Help Center Claude.</li>
+        <li><span class="ok">Community e dev:</span> insight operativi da Reddit/GitHub/tech media, sempre trattati come evidenza empirica non vincolante.</li>
+        <li><span class="ok">Speculazioni non verificabili:</span> mantenute come ipotesi, non come fatti certi.</li>
+      </ul>
+      <p class="muted">Questo approccio riduce il rischio di includere numeri o feature non confermati nei workflow reali.</p>
+    </section>
+
+    <section class="panel" id="contenuto">
+      <h2>Corso Completo - Parte 1</h2>
+      <h1 id="claude-design-corso-completo">CLAUDE DESIGN — CORSO COMPLETO</h1><h2 id="dal-primo-accesso-alla-padronanza-professionale">Dal primo accesso alla padronanza professionale</h2><blockquote><strong>Aggiornato:</strong> Aprile 2026 | <strong>Livello:</strong> Beginner → Expert | <strong>Durata stimata:</strong> 6-8 ore</blockquote><blockquote><strong>Accesso al prodotto:</strong> claude.ai/design — richiede piano Pro ($20/mese), Max, Team o Enterprise</blockquote><hr><h2 id="come-usare-questo-corso">COME USARE QUESTO CORSO</h2><p>Il corso è diviso in <strong>5 livelli progressivi</strong>. Ogni livello include lezioni teoriche, esempi pratici, esercizi hands-on e un test di verifica finale. Non saltare i livelli: le competenze si costruiscono una sopra l&#39;altra.</p><div class="table-wrap"><table><thead><tr><th>Livello</th><th>Nome</th><th>A chi serve</th><th>Durata</th></tr></thead><tbody><tr><td>0</td><td>Fondamenta</td><td>Chi non ha mai aperto Claude Design</td><td>30 min</td></tr><tr><td>1</td><td>Beginner</td><td>Chi vuole ottenere il primo risultato utile</td><td>60 min</td></tr><tr><td>2</td><td>Intermedio</td><td>Chi vuole usarlo regolarmente nel lavoro</td><td>90 min</td></tr><tr><td>3</td><td>Avanzato</td><td>Chi vuole output di qualità professionale</td><td>120 min</td></tr><tr><td>4</td><td>Expert</td><td>Chi lo usa in team o contesti enterprise</td><td>90 min</td></tr></tbody></table></div><p><strong>Prerequisito unico:</strong> un abbonamento Claude attivo (Pro o superiore).</p><hr><hr><h1 id="livello-0">░░ LIVELLO 0 ░░</h1><h1 id="fondamenta">FONDAMENTA</h1><h3 id="cosa-è-come-funziona-come-accedere">Cosa è, come funziona, come accedere</h3><hr><h2 id="l01-cosè-claude-design-e-cosa-non-è">L0.1 — Cos&#39;è Claude Design (e cosa NON è)</h2><p>Claude Design è un workspace di <strong>prototipazione visiva conversazionale</strong> lanciato da Anthropic il 17 aprile 2026. Permette di creare design, prototipi, slide, landing page, mockup e one-pager descrivendo ciò che si vuole in linguaggio naturale.</p><p>Prima di tutto, chiarisci cosa NON è:</p><div class="table-wrap"><table><thead><tr><th>NON è...</th><th>MA è...</th></tr></thead><tbody><tr><td>Un generatore di immagini (Midjourney, DALL-E)</td><td>Un motore di prototipazione UI/UX</td></tr><tr><td>Un editor grafico (Photoshop, Illustrator)</td><td>Un workspace conversazionale</td></tr><tr><td>Un tool per template (Canva)</td><td>Un partner che parte dall&#39;idea, non dal template</td></tr><tr><td>Un sostituto di Figma per team di design pro</td><td>Uno strumento per non-designer e prototipazione rapida</td></tr><tr><td>Uno strumento standalone</td><td>Un prodotto integrato nell&#39;ecosistema Claude</td></tr></tbody></table></div><p><strong>La definizione più precisa:</strong> Claude Design è Claude che ha imparato a pensare visivamente. Non disegna pixel — <em>ragiona</em> su layout, gerarchia, colori e composizione, poi genera il codice visivo che rappresenta quel ragionamento.</p><hr><h2 id="l02-il-motore-claude-opus-47">L0.2 — Il motore: Claude Opus 4.7</h2><p>Claude Design è alimentato esclusivamente da <strong>Claude Opus 4.7</strong>, rilasciato il 16 aprile 2026. Capire questo modello ti aiuta a capire perché certi prompt funzionano meglio di altri.</p><h3 id="capacità-visive-chiave">Capacità visive chiave</h3><div class="table-wrap"><table><thead><tr><th>Capacità</th><th>Valore</th><th>Perché conta per il design</th></tr></thead><tbody><tr><td>Risoluzione immagini accettate</td><td>2.576px / 3,75MP</td><td>Analizza screenshot ad alta def, capisce interfacce reali</td></tr><tr><td>Acuità visiva (computer use)</td><td>98,5%</td><td>Vede ciò che ha generato, si autocorregge</td></tr><tr><td>Errori su documenti (OfficeQA Pro)</td><td>-21% vs modello prev.</td><td>Analizza PDF, brief, style guide con precisione</td></tr><tr><td>Visual reasoning (CharXiv)</td><td>82,1%</td><td>Capisce diagrammi, layout, gerarchie visive</td></tr><tr><td>Context window</td><td>1 milione di token</td><td>Può tenere in memoria l&#39;intero progetto durante la sessione</td></tr></tbody></table></div><h3 id="il-concetto-di-auto-validazione">Il concetto di auto-validazione</h3><p>La capacità più rilevante per il design non è la generazione: è l&#39;<strong>auto-validazione</strong>. Opus 4.7 può osservare ciò che ha appena creato, valutarne la qualità visiva, identificare problemi di layout o coerenza, e correggersi — senza che tu debba dirglielo.</p><p>Questo è il motivo per cui le iterazioni sono così veloci: il modello non aspetta istruzioni per correggere errori ovvi. Li risolve autonomamente nel ciclo di generazione.</p><hr><h2 id="l03-linterfaccia-mappa-visiva">L0.3 — L&#39;interfaccia: mappa visiva</h2><pre><code>┌─────────────────────────────────────────────────────────────┐
+│                    claude.ai/design                         │
+├──────────────────────────┬──────────────────────────────────┤
+│                          │                                  │
+│   SIDEBAR SINISTRA       │        CANVAS CENTRALE           │
+│   &quot;Let&#39;s Prototype&quot;      │                                  │
+│                          │   ┌──────────────────────────┐   │
+│  ┌────────────────────┐  │   │                          │   │
+│  │  Chat box          │  │   │   Il design prende       │   │
+│  │  (prompt input)    │  │   │   forma qui in           │   │
+│  └────────────────────┘  │   │   tempo reale            │   │
+│                          │   │                          │   │
+│  ┌────────────────────┐  │   └──────────────────────────┘   │
+│  │  Upload riferimenti│  │                                  │
+│  │  immagini/documenti│  │   Clic diretto sugli elementi    │
+│  └────────────────────┘  │   per commenti inline            │
+│                          │                                  │
+│  ┌────────────────────┐  │                                  │
+│  │  Web capture tool  │  │                                  │
+│  │  (cattura dal sito)│  │                                  │
+│  └────────────────────┘  │                                  │
+│                          │                                  │
+│  ┌────────────────────┐  ├──────────────────────────────────┤
+│  │  TWEAKS            │  │  PANNELLO EXPORT                 │
+│  │  (modifiche mirate)│  │  PDF | PPTX | HTML | Canva | URL │
+│  └────────────────────┘  │                                  │
+└──────────────────────────┴──────────────────────────────────┘
+</code></pre><h3 id="le-5-zone-in-dettaglio">Le 5 zone in dettaglio</h3><p><strong>1. Chat box (sidebar):</strong> Il tuo canale principale di comunicazione. Qui scrivi i prompt iniziali e le richieste di modifica generali. Claude risponde generando o aggiornando il design sulla canvas.</p><p><strong>2. Upload riferimenti:</strong> Puoi caricare immagini (screenshot, mood board, design di competitor), documenti (PDF delle linee guida brand, brief in DOCX, presentazioni PPTX, dati in XLSX). Claude analizza tutto e usa il materiale per orientare il design.</p><p><strong>3. Web capture tool:</strong> Uno degli strumenti più potenti e meno citati. Fornisci l&#39;URL del tuo sito o prodotto e Claude cattura elementi visivi direttamente dalla pagina. I prototipi risultanti sembrano il tuo prodotto reale, non un mockup generico.</p><p><strong>4. Tweaks (commenti inline):</strong> Clicca su qualsiasi elemento della canvas per aprire un pannello di modifica contestuale. Invece di descrivere nella chat &quot;cambia il terzo bottone a destra&quot;, clicchi su quel bottone e scrivi direttamente &quot;rendilo più grande e cambia il colore&quot;. Preciso, senza ambiguità.</p><p><strong>5. Pannello Export:</strong> Quando il design è pronto, esporti verso: PDF, PPTX, HTML standalone, URL interno condivisibile, oppure direttamente verso Canva per editing collaborativo o Claude Code per implementazione.</p><hr><h2 id="l04-setup-iniziale-10-minuti-per-iniziare">L0.4 — Setup iniziale: 10 minuti per iniziare</h2><h3 id="step-1-accesso">Step 1: Accesso</h3><p>Vai su <strong>claude.ai/design</strong> con il tuo account. Se hai un piano compatibile, vedrai l&#39;interfaccia descrita sopra. Se non hai accesso, o sei su piano gratuito o il rollout non ha ancora raggiunto il tuo account (è graduale).</p><h3 id="step-2-configurazione-del-design-system-opzionale-ma-raccomandata">Step 2: Configurazione del Design System (opzionale ma raccomandata)</h3><p>La prima volta che crei un progetto, Claude ti propone di configurare il design system automatico. Hai tre opzioni:</p><p><strong>Opzione A — Codebase (la più potente):</strong> Se hai accesso a un repository di codice, forniscilo a Claude. Estrarrà automaticamente colori CSS, font, componenti, token di design. Da quel momento ogni progetto userà il tuo brand senza che tu debba specificare nulla.</p><p><strong>Opzione B — File di brand:</strong> Carica le linee guida del brand in PDF, screenshot del sito, immagini con la palette colori. Claude costruirà un design system approssimato ma coerente.</p><p><strong>Opzione C — Nessun setup:</strong> Puoi saltare completamente. Claude userà il suo senso estetico di default. Va bene per sperimentare, ma i risultati non saranno brandizzati.</p><h3 id="step-3-primo-test-rapido">Step 3: Primo test rapido</h3><p>Prima di qualsiasi progetto serio, fai questo test per capire il funzionamento base:</p><blockquote><em>Scrivi nella chat:</em> &quot;Crea un semplice one-pager per presentare [il tuo nome o la tua azienda] con un titolo, una frase di presentazione e un bottone di contatto.&quot;</blockquote><p>Osserva come risponde. Modifica un elemento cliccandoci sopra. Esporta in PDF. Hai completato il ciclo base.</p><hr><h2 id="test-livello-0">✅ TEST LIVELLO 0</h2><p>Prima di procedere, verifica di saper rispondere a queste domande:</p><ol><li>Claude Design genera immagini fotografiche? (Sì/No)</li><li>Quale modello alimenta Claude Design?</li><li>Cosa fa il &quot;web capture tool&quot;?</li><li>Qual è la differenza tra Chat box e Tweaks?</li><li>Su quale piano è disponibile Claude Design?</li></ol><p><strong>Risposte:</strong> No / Claude Opus 4.7 / Cattura elementi visivi dal tuo sito reale / Chat = modifiche generali, Tweaks = modifiche su elemento specifico / Pro, Max, Team, Enterprise</p><hr><hr><h1 id="livello-1">░░ LIVELLO 1 ░░</h1><h1 id="beginner">BEGINNER</h1><h3 id="i-tuoi-primi-design-in-meno-di-unora">I tuoi primi design in meno di un&#39;ora</h3><hr><h2 id="l11-il-principio-fondamentale-del-prompting">L1.1 — Il Principio Fondamentale del Prompting</h2><p>Esiste un errore che fanno quasi tutti alla prima apertura di Claude Design. È un errore comprensibile, e capire perché è sbagliato ti farà risparmiare ore di frustrazione.</p><p><strong>L&#39;errore:</strong> descrivere il design in termini tecnici.</p><pre><code>❌ PROMPT TECNICO (non funziona bene)
+&quot;Crea un layout con header fisso alto 64px, background #1a1a2e,
+font Inter 16px colore bianco. Body con due colonne: sinistra 40%
+con immagine hero, destra 60% con titolo H1 48px bold e paragrafo
+di testo con line-height 1.6...&quot;
+</code></pre><p>Questo tipo di prompt tratta Claude come Figma o CSS. Gli stai dando specifiche invece che obiettivi.</p><p><strong>La soluzione:</strong> descrivere contesto, audience, obiettivo e tono.</p><pre><code>✅ PROMPT CONTESTUALE (funziona)
+&quot;Crea la homepage di un&#39;app di produttività per freelance.
+Chi la visita sono designer e sviluppatori freelance oberati di
+lavoro. Devono capire subito che l&#39;app risolve il problema della
+gestione del tempo. Tono: professionale ma non corporate, diretto.
+Includi: headline forte, tre vantaggi chiave, call-to-action per
+la prova gratuita.&quot;
+</code></pre><p><strong>Perché funziona meglio?</strong> Perché stai dando a Claude le stesse informazioni che daresti a un bravo designer umano. Un designer non ha bisogno che tu specifichi il font: ha bisogno di capire chi è l&#39;utente e cosa deve sentire guardando quella pagina.</p><hr><h2 id="l12-il-framework-patc-per-i-prompt">L1.2 — Il Framework P.A.T.C. per i Prompt</h2><p>Memorizza questo schema per costruire qualsiasi prompt:</p><p><strong>P — Prodotto:</strong> Cosa stai creando? (landing page / pitch deck / prototipo app / one-pager / social graphic / wireframe / presentazione)</p><p><strong>A — Audience:</strong> Chi è l&#39;utente o lettore finale? Qual è il suo contesto e le sue aspettative?</p><p><strong>T — Target:</strong> Cosa deve fare o capire dopo aver visto il design? Qual è l&#39;azione desiderata?</p><p><strong>C — Carattere visivo:</strong> Come deve sentirsi il design? Un aggettivo o riferimento visivo è sufficiente.</p><p>Esempio applicato:</p><div class="table-wrap"><table><thead><tr><th>Elemento</th><th>Esempio</th></tr></thead><tbody><tr><td><strong>P</strong>rodotto</td><td>Landing page</td></tr><tr><td><strong>A</strong>udience</td><td>CFO e direttori finanziari di PMI, abituati a presentazioni formali</td></tr><tr><td><strong>T</strong>arget</td><td>Prenotare una demo del software di reportistica</td></tr><tr><td><strong>C</strong>arattere</td><td>Autorevole, dati-centrico, colori sobri</td></tr></tbody></table></div><p><strong>Prompt risultante:</strong></p><blockquote>&quot;Crea la landing page di un software di reportistica finanziaria. Target: CFO e direttori finanziari di PMI. Obiettivo: spingerli a prenotare una demo. Tono visivo: autorevole, dati-centrico, colori sobri. Include: headline focalizzata sul risparmio di tempo, 3 funzionalità chiave con numeri, logo clienti di riferimento (placeholder), form di contatto.&quot;</blockquote><hr><h2 id="l13-i-7-output-principali-e-come-richiederli">L1.3 — I 7 Output Principali e Come Richiederli</h2><h3 id="1-landing-page">1. Landing Page</h3><p><strong>Quando:</strong> Per promuovere un prodotto o servizio online, raccogliere lead, presentare un&#39;offerta.</p><p><strong>Struttura consigliata da includere nel prompt:</strong></p><ul><li>Hero section (headline + sottotitolo + CTA)</li><li>Sezione benefici/funzionalità (3-4 elementi)</li><li>Social proof (testimonial, loghi clienti, numeri)</li><li>CTA finale (form, bottone prenotazione)</li></ul><p><strong>Prompt template:</strong></p><pre><code>Crea una landing page per [prodotto/servizio].
+Target: [persona specifica]
+Obiettivo: [azione desiderata]
+Tono: [aggettivo]
+Sezioni: hero con headline, [N] card funzionalità,
+         sezione testimonial, CTA con [form/bottone].
+</code></pre><hr><h3 id="2-pitch-deck">2. Pitch Deck</h3><p><strong>Quando:</strong> Per presentare una startup a investitori, presentare un progetto internamente, fare una proposta commerciale.</p><p><strong>Struttura standard investor pitch:</strong></p><ol><li>Cover (nome, tagline)</li><li>Problema (il pain point)</li><li>Soluzione (il tuo prodotto)</li><li>Mercato (TAM/SAM/SOM)</li><li>Prodotto (screenshot/demo)</li><li>Business model (come guadagni)</li><li>Traction (numeri attuali)</li><li>Team</li><li>Roadmap</li><li>Ask (quanto cerchi e per cosa)</li></ol><p><strong>Prompt template:</strong></p><pre><code>Crea un pitch deck di [N] slide per [startup/progetto].
+Settore: [categoria]
+Target investor: [tipo: angel, VC seed, corporate]
+Tono: [visionario/concreto/tecnico]
+Struttura: problema → soluzione → mercato →
+           prodotto → traction → team → ask
+Highlights da enfatizzare: [punti di forza]
+</code></pre><hr><h3 id="3-prototipo-app-mobile-o-desktop">3. Prototipo App (Mobile o Desktop)</h3><p><strong>Quando:</strong> Per validare un&#39;idea di prodotto, presentare una feature a stakeholder, testare un flusso utente.</p><p><strong>Elemento chiave da specificare:</strong> la schermata specifica, non l&#39;intera app. &quot;Prototipa la schermata principale&quot; è meglio di &quot;prototipa l&#39;app&quot;.</p><p><strong>Prompt template:</strong></p><pre><code>Prototipa [schermata specifica] di un&#39;app [mobile/desktop]
+per [funzione principale].
+Utente tipo: [chi usa questa schermata]
+Azione principale in questa schermata: [cosa fa l&#39;utente]
+Stile visivo: [riferimento o descrizione]
+Elementi obbligatori: [navigazione, stati, componenti specifici]
+</code></pre><hr><h3 id="4-one-pager">4. One-Pager</h3><p><strong>Quando:</strong> Schede vendita, case study, materiali per eventi, presentazioni di servizio, profilo aziendale.</p><p><strong>Regola chiave:</strong> specifica sempre il formato (A4 verticale è standard) e il destinatario.</p><p><strong>Prompt template:</strong></p><pre><code>Crea un one-pager formato A4 verticale per presentare
+[prodotto/servizio/azienda] a [tipo di destinatario].
+Obiettivo: [convincere / informare / ispirare]
+Sezioni: [logo, headline, proposta di valore,
+          3 punti chiave, processo/metodologia,
+          referenze/loghi, contatti]
+Tono: [formale/informale/tecnico/commerciale]
+</code></pre><hr><h3 id="5-grafiche-social-media">5. Grafiche Social Media</h3><p><strong>Quando:</strong> Post LinkedIn, banner Instagram, grafiche per campagne, copertine per webinar.</p><p><strong>Elemento chiave:</strong> specifica le dimensioni o la piattaforma target, e il formato (singola immagine, carousel, storia).</p><p><strong>Prompt template:</strong></p><pre><code>Crea [N] grafiche per [piattaforma] sul tema [argomento].
+Formato: [dimensioni o piattaforma: LinkedIn post /
+          Instagram square / Instagram story / Twitter header]
+Contenuto: [testo principale, hashtag se necessari]
+Stile: [coerente con [brand] / stile [aggettivo]]
+Serie o standalone: [se serie, definire il filo conduttore]
+</code></pre><hr><h3 id="6-wireframe-mockup-di-funzionalità">6. Wireframe / Mockup di Funzionalità</h3><p><strong>Quando:</strong> Per comunicare un&#39;idea di feature a designer o sviluppatori, presentare una user story, fare grooming del backlog.</p><p><strong>Elemento chiave:</strong> il wireframe serve a comunicare struttura e logica, non estetica. Dillo esplicitamente.</p><p><strong>Prompt template:</strong></p><pre><code>Crea un wireframe [lo-fi/mid-fi] per la funzionalità di
+[nome feature] nel prodotto [nome prodotto].
+Scopo del wireframe: comunicare la struttura a [designer/dev/stakeholder]
+Flusso utente: [step 1 → step 2 → step 3]
+Vincoli tecnici: [se esistono]
+Non serve estetica definitiva: focus su struttura e logica.
+</code></pre><hr><h3 id="7-presentazione-slide-deck-aziendale">7. Presentazione / Slide Deck Aziendale</h3><p><strong>Quando:</strong> Report trimestrale, presentazione di risultati, onboarding aziendale, training interno.</p><p><strong>Prompt template:</strong></p><pre><code>Crea una presentazione di [N] slide per [contesto:
+board meeting / all-hands / cliente / formazione interna].
+Argomento: [tema principale]
+Audience: [chi guarda]
+Punti chiave da comunicare: [lista]
+Tono: [formale/informale] | Stile: [minimalista/data-driven/visuale]
+Includi: grafici placeholder per [tipo di dato]
+</code></pre><hr><h2 id="l14-aggiungere-contesto-reference-material">L1.4 — Aggiungere Contesto: Reference Material</h2><p>Un prompt da solo produce buoni risultati. Un prompt con materiale di riferimento produce risultati eccellenti.</p><h3 id="cosa-puoi-caricare-e-cosa-ne-fa-claude">Cosa puoi caricare e cosa ne fa Claude</h3><div class="table-wrap"><table><thead><tr><th>Materiale</th><th>Formato</th><th>Come lo usa Claude</th></tr></thead><tbody><tr><td>Screenshot del tuo sito</td><td>PNG/JPG</td><td>Replica stile, colori, componenti reali</td></tr><tr><td>Design di competitor</td><td>PNG/JPG</td><td>Capisce il mercato visivo di riferimento</td></tr><tr><td>Linee guida brand</td><td>PDF</td><td>Estrae palette, font, regole visive</td></tr><tr><td>Brief del progetto</td><td>DOCX/PDF</td><td>Usa testi reali, capisce vincoli</td></tr><tr><td>Dati da presentare</td><td>XLSX</td><td>Genera grafici e visualizzazioni coerenti</td></tr><tr><td>Presentazione esistente</td><td>PPTX</td><td>Mantiene stile e template, aggiunge contenuto</td></tr><tr><td>Screenshot competitor</td><td>PNG/JPG</td><td>Differenzia o ispira dipende dall&#39;istruzione</td></tr></tbody></table></div><h3 id="il-web-capture-tool">Il Web Capture Tool</h3><p>Invece di fare screenshot manuali, usa il web capture tool: fornisci l&#39;URL del tuo prodotto o sito, e Claude cattura direttamente gli elementi visivi. Il risultato è che i prototipi sembrano il tuo prodotto reale — stesso header, stessa palette, stesso stile generale.</p><p><strong>Come usarlo:</strong></p><ol><li>Nella sidebar, cerca l&#39;opzione &quot;Cattura dal sito&quot; o &quot;Web capture&quot;</li><li>Incolla l&#39;URL della pagina di riferimento</li><li>Claude analizza e cattura lo stile</li><li>Usa questo come base visiva per il nuovo progetto</li></ol><hr><h2 id="l15-prime-iterazioni-i-4-modi-per-modificare">L1.5 — Prime Iterazioni: i 4 Modi per Modificare</h2><p>Una volta che hai il primo draft, hai quattro modi per raffinarlo. Ognuno è ottimale per scenari diversi.</p><h3 id="modo-1-chat-per-cambiamenti-strutturali">Modo 1: Chat (per cambiamenti strutturali)</h3><p><strong>Quando usarlo:</strong> vuoi cambiare il layout, aggiungere/rimuovere sezioni, cambiare il tono generale.</p><p>Esempi:</p><ul><li>&quot;Aggiungi una sezione testimonial dopo le funzionalità&quot;</li><li>&quot;Rendi il design più scuro e premium&quot;</li><li>&quot;Elimina la sezione pricing e sostituiscila con un comparison table&quot;</li><li>&quot;Cambia il layout da una a due colonne&quot;</li></ul><h3 id="modo-2-tweaks-commenti-inline-per-cambiamenti-puntuali">Modo 2: Tweaks / Commenti Inline (per cambiamenti puntuali)</h3><p><strong>Quando usarlo:</strong> vuoi modificare un elemento specifico senza toccare il resto.</p><p>Come funziona: clicchi sull&#39;elemento sulla canvas → si apre un pannello → scrivi la modifica.</p><p>Esempi:</p><ul><li>[clic sul titolo] &quot;Aumenta il font size di 4px&quot;</li><li>[clic su un bottone] &quot;Usa il colore brand principale, non questo grigio&quot;</li><li>[clic su un&#39;immagine placeholder] &quot;Sostituisci con un&#39;icona astratta&quot;</li><li>[clic su uno spazio] &quot;C&#39;è troppo spazio qui, riduci il padding&quot;</li></ul><h3 id="modo-3-editing-diretto-del-testo">Modo 3: Editing Diretto del Testo</h3><p><strong>Quando usarlo:</strong> devi cambiare i testi senza modificare il layout.</p><p>Clicca direttamente su qualsiasi testo nella canvas e modificalo come faresti in un editor. Claude mantiene automaticamente la coerenza visiva: gerarchia tipografica, stile, peso del font.</p><h3 id="modo-4-adjustment-knobs-manopole-dinamiche">Modo 4: Adjustment Knobs (Manopole Dinamiche)</h3><p><strong>Quando usarlo:</strong> vuoi regolare un parametro quantitativo senza sapere il valore esatto.</p><p>Claude può creare su richiesta degli slider interattivi per:</p><ul><li>Spaziatura tra elementi (padding/margin)</li><li>Intensità e saturazione dei colori</li><li>Peso dei caratteri (light ↔ bold)</li><li>Dimensione dei componenti</li><li>Contrasto generale</li></ul><p><strong>Come richiederli:</strong></p><blockquote>&quot;Crea una manopola per regolare il padding verticale tra le sezioni&quot;</blockquote><p>Sposti lo slider, vedi il risultato in tempo reale, quando trovi il valore giusto Claude lo applica a tutto il design in modo coerente.</p><hr><h2 id="l16-il-tuo-primo-progetto-completo-esercizio-guidato">L1.6 — Il Tuo Primo Progetto Completo: Esercizio Guidato</h2><p><strong>Obiettivo:</strong> creare un one-pager professionale in meno di 20 minuti.</p><p><strong>Scenario:</strong> sei un consulente freelance (o un&#39;azienda — adatta al tuo contesto) e devi presentare i tuoi servizi a un potenziale cliente.</p><p><strong>Step 1 — Prompt iniziale (2 minuti):</strong></p><pre><code>Crea un one-pager formato A4 verticale per presentare i servizi
+di [il tuo nome/azienda] a potenziali clienti [tipo di azienda target].
+
+Servizi offerti: [lista i tuoi 3 servizi principali]
+Proposta di valore: [in una frase, perché sceglierti]
+Tono: professionale ma accessibile
+
+Struttura:
+- Header con nome/logo e tagline
+- Proposta di valore principale (headline grande)
+- 3 servizi con breve descrizione
+- Come lavoro (processo in 3-4 step)
+- Risultati / numeri chiave (usa placeholder realistici)
+- CTA con email e sito
+</code></pre><p><strong>Step 2 — Prima iterazione (3 minuti):</strong> Guarda il risultato. Identifica la cosa che ti piace di meno. Clicca su quell&#39;elemento e modifica. Non cercare la perfezione subito: un cambiamento alla volta.</p><p><strong>Step 3 — Seconda iterazione (3 minuti):</strong> Usa la chat per un cambiamento strutturale: &quot;Rendi il design più [aggettivo che rappresenta meglio il tuo brand].&quot;</p><p><strong>Step 4 — Testo reale (5 minuti):</strong> Sostituisci i testi placeholder con i tuoi testi reali usando l&#39;editing diretto.</p><p><strong>Step 5 — Export (2 minuti):</strong> Esporta in PDF. Hai il tuo primo deliverable professionale.</p><hr><h2 id="test-livello-1">✅ TEST LIVELLO 1</h2><ol><li>Qual è la differenza principale tra un prompt tecnico e un prompt contestuale?</li><li>Cosa significano le lettere del framework P.A.T.C.?</li><li>Quando userest i Tweaks invece della chat per modificare?</li><li>Quale tipo di file caricheresti per far sì che Claude usi i tuoi dati reali in una presentazione?</li><li>Cosa sono gli &quot;Adjustment Knobs&quot;?</li></ol><p><strong>Risposte:</strong> Tecnico = specifiche CSS/px, Contestuale = audience/obiettivo/tono / Prodotto-Audience-Target-Carattere / Tweaks per elementi specifici, Chat per cambiamenti generali / XLSX / Slider interattivi per regolare parametri quantitativi</p><hr><hr><h1 id="livello-2">░░ LIVELLO 2 ░░</h1><h1 id="intermedio">INTERMEDIO</h1><h3 id="brand-collaborazione-export-professionale">Brand, collaborazione, export professionale</h3><hr><h2 id="l21-il-design-system-il-cuore-dellautomazione">L2.1 — Il Design System: il Cuore dell&#39;Automazione</h2><p>Il design system è la funzionalità che trasforma Claude Design da &quot;tool utile&quot; a &quot;asset aziendale&quot;. Capirla bene è il salto di qualità più importante del livello intermedio.</p><h3 id="cosa-è-un-design-system">Cosa è un design system</h3><p>Un design system è l&#39;insieme di regole visive che definiscono l&#39;identità grafica di un&#39;organizzazione:</p><ul><li><strong>Palette colori</strong> (primari, secondari, semantici: success/warning/error)</li><li><strong>Tipografia</strong> (font family, pesi, dimensioni, gerarchia)</li><li><strong>Componenti</strong> (bottoni, card, form, navigation, badge)</li><li><strong>Spaziatura</strong> (grid, padding standard, margini)</li><li><strong>Tono visivo</strong> (angoli arrotondati vs spigolosi, densità, uso degli spazi bianchi)</li></ul><h3 id="come-claude-costruisce-il-design-system-automaticamente">Come Claude costruisce il design system automaticamente</h3><p>Durante l&#39;onboarding del primo progetto, Claude esegue questo processo:</p><p><strong>Percorso A — Dal codebase:</strong> Claude scansiona i file CSS/SCSS/Tailwind e il codice del frontend. Estrae variabili colore, import di font, classi di spacing, componenti riutilizzabili. È il metodo più accurato perché usa i valori esatti già in uso nel prodotto reale.</p><pre><code>Esempio di cosa estrae da un file CSS:
+:root {
+  --color-primary: #0066FF;    ← diventa il tuo colore brand
+  --color-text: #1a1a2e;       ← diventa il colore testo
+  --font-body: &#39;Inter&#39;, sans;  ← diventa il tuo font
+  --radius-md: 8px;            ← diventa il border-radius standard
+}
+</code></pre><p><strong>Percorso B — Da file di brand:</strong> Carichi PDF delle linee guida, screenshot del sito, immagini con la palette. Claude analizza visivamente e costruisce un design system approssimato. Meno preciso del codebase, ma sufficiente per il 90% dei casi.</p><p><strong>Percorso C — Dall&#39;URL (web capture):</strong> Fornisci l&#39;URL del sito e Claude cattura stili, layout e componenti direttamente. Utile se non hai accesso al codice sorgente.</p><h3 id="multi-brand-gestire-più-design-system">Multi-brand: gestire più design system</h3><p>I team possono mantenere più design system nella stessa organizzazione. Scenari d&#39;uso:</p><ul><li><strong>Agenzia:</strong> un design system per ogni cliente</li><li><strong>Holding:</strong> brand separati per ogni prodotto/divisione</li><li><strong>B2B con white label:</strong> versioni brandizzate per clienti diversi</li></ul><p>Per passare da un design system all&#39;altro, selezioni quello attivo prima di creare un nuovo progetto. Tutti i progetti ereditano automaticamente le regole del sistema selezionato.</p><h3 id="raffinamento-progressivo-del-design-system">Raffinamento progressivo del design system</h3><p>Il design system non è statico. Puoi migliorarlo nel tempo:</p><ul><li>Aggiungere componenti mancanti (&quot;aggiungi al design system un componente card con immagine in evidenza&quot;)</li><li>Correggere interpretazioni errate (&quot;il colore primario dovrebbe essere più saturo&quot;)</li><li>Aggiornare dopo un rebrand</li></ul><hr><h2 id="l22-prompt-avanzati-con-reference-material">L2.2 — Prompt Avanzati con Reference Material</h2><h3 id="la-tecnica-ispira-differenzia">La tecnica &quot;ispira + differenzia&quot;</h3><p>Invece di partire da zero, usa i design dei competitor come punto di partenza strategico:</p><pre><code>Carico lo screenshot del sito di [competitor].
+
+Crea una landing page per [il mio prodotto] che:
+- Abbia la stessa chiarezza strutturale di questo competitor
+- Si differenzi nettamente nello stile visivo (più [aggettivo])
+- Comunichi [il mio punto di forza distintivo]
+</code></pre><h3 id="la-tecnica-ricostruzione-fedele">La tecnica &quot;ricostruzione fedele&quot;</h3><p>Per prototipi che devono sembrare il prodotto reale:</p><pre><code>Usando il web capture del nostro sito [URL], crea una nuova
+schermata che mostra [nuova funzionalità].
+Deve sembrare una schermata reale del nostro prodotto, non un mockup.
+La funzionalità mostra: [descrizione del flusso]
+</code></pre><h3 id="la-tecnica-documento-design">La tecnica &quot;documento → design&quot;</h3><p>Hai un brief, un piano, un documento di testo? Trasformalo in design:</p><pre><code>[Carica il PDF/DOCX del brief]
+
+Basandoti su questo documento, crea:
+- Un one-pager che sintetizza i punti chiave per [audience]
+- Usa solo le informazioni presenti nel documento
+- Evidenzia: [cosa enfatizzare]
+- Tono: [come adattare la voce]
+</code></pre><hr><h2 id="l23-collaborazione-come-lavorare-in-team">L2.3 — Collaborazione: come lavorare in team</h2><h3 id="livelli-di-accesso">Livelli di accesso</h3><p>Claude Design supporta condivisione a scope organizzativo con tre livelli:</p><div class="table-wrap"><table><thead><tr><th>Livello</th><th>Visibilità</th><th>Permessi</th></tr></thead><tbody><tr><td><strong>Privato</strong></td><td>Solo tu</td><td>Visualizzare, modificare, esportare</td></tr><tr><td><strong>Link interno</strong></td><td>Chiunque nell&#39;org con il link</td><td>Solo visualizzare</td></tr><tr><td><strong>Accesso di modifica</strong></td><td>Colleghi invitati</td><td>Modificare il design, chattare con Claude</td></tr></tbody></table></div><h3 id="workflow-di-collaborazione-asincrona">Workflow di collaborazione asincrona</h3><p>Claude Design non ha co-editing in tempo reale (come Google Docs). La collaborazione è <strong>asincrona</strong>: un utente alla volta interagisce con il design. Il workflow ottimale per team:</p><pre><code>1. Designer A crea il draft iniziale
+   ↓
+2. Designer A condivide il link con permesso di visualizzazione
+   al team per review
+   ↓
+3. Il team lascia feedback via commenti o in un canale separato
+   ↓
+4. Designer A torna nel design, applica le modifiche via chat/tweaks
+   ↓
+5. Quando approvato, condivide con permesso di modifica per
+   rifinitura finale o esportazione
+</code></pre><h3 id="best-practice-per-la-collaborazione">Best practice per la collaborazione</h3><ul><li><strong>Naming dei progetti:</strong> usa nomi chiari e con versione (es: &quot;Landing_v2_revisione_marketing&quot;)</li><li><strong>Commenti strutturati:</strong> quando usi i tweaks per feedback, sii specifico: &quot;Questo font è troppo piccolo per mobile&quot; è meglio di &quot;cambia il font&quot;</li><li><strong>Export intermedi:</strong> condividi PDF o URL per review, non l&#39;accesso diretto al canvas durante le fasi di feedback</li></ul><hr><h2 id="l24-export-professionale-quale-formato-per-quale-scopo">L2.4 — Export Professionale: quale formato per quale scopo</h2><h3 id="pdf">PDF</h3><p><strong>Quando:</strong> documenti da condividere via email, stampare, presentare in formato fisso.</p><p><strong>Ideale per:</strong> one-pager, case study, materiali di vendita, report, qualsiasi documento che non deve essere modificato dal destinatario.</p><p><strong>Limitazione:</strong> layout fisso, non editabile, nessuna interattività.</p><h3 id="pptx-powerpoint">PPTX (PowerPoint)</h3><p><strong>Quando:</strong> presentazioni da aprire in PowerPoint o Google Slides, deck da personalizzare dopo l&#39;export, presentazioni da presentare live.</p><p><strong>Ideale per:</strong> pitch deck, presentazioni client, board meeting, training.</p><p><strong>Vantaggio chiave:</strong> il destinatario può modificare liberamente. Google Slides può aprire PPTX tramite import.</p><h3 id="html-standalone">HTML Standalone</h3><p><strong>Quando:</strong> prototipi interattivi da condividere, demo offline, output da integrare in sistemi esistenti.</p><p><strong>Ideale per:</strong> prototipi con interattività, demo per stakeholder tecnici, landing page da implementare.</p><p><strong>Vantaggio chiave:</strong> funziona nel browser senza server, mantiene l&#39;interattività generata da Claude.</p><h3 id="url-interno">URL Interno</h3><p><strong>Quando:</strong> review veloci, condivisione rapida all&#39;interno del team, raccolta feedback preliminari.</p><p><strong>Ideale per:</strong> durante il processo creativo, per far vedere lo stato avanzamento.</p><p><strong>Limitazione:</strong> accessibile solo ai membri dell&#39;organizzazione con l&#39;account Claude.</p><h3 id="export-verso-canva">Export verso Canva</h3><p><strong>Quando:</strong> il design deve essere raffinato ulteriormente con collaborazione real-time, pubblicato sui social, stampato in vari formati, o condiviso con persone esterne all&#39;organizzazione.</p><p><strong>Flusso:</strong> Claude Design genera il draft → export Canva → il design diventa un documento Canva completamente editabile con drag-and-drop, animazioni, pubblicazione diretta.</p><p><strong>Perché funziona:</strong> Canva e Anthropic collaborano da due anni. Canva ha rilasciato un MCP (Model Context Protocol) per Claude già a luglio 2025. L&#39;integrazione è profonda, non superficiale.</p><h3 id="handoff-a-claude-code">Handoff a Claude Code</h3><p><strong>Quando:</strong> il design è approvato ed è pronto per essere implementato in produzione.</p><p><strong>Come funziona:</strong> Claude impacchetta tutto in un &quot;handoff bundle&quot; che contiene layout, colori, tipografia, componenti, spaziature, e — aspetto unico — il <strong>design intent</strong>: la ragione di ogni scelta visiva. Claude Code usa questo bundle per implementare il design senza perdita di informazioni nel passaggio designer → sviluppatore.</p><p><strong>Differenza con Figma Dev Mode:</strong> In Figma puoi esportare specifiche (px, colori, CSS). Nel handoff bundle di Claude Design sono incluse anche le motivazioni delle scelte, che Claude Code può usare per prendere decisioni coerenti quando implementa.</p><hr><h2 id="l25-esercizio-intermedio-pitch-deck-completo">L2.5 — Esercizio Intermedio: Pitch Deck Completo</h2><p><strong>Obiettivo:</strong> creare un pitch deck da 10 slide in meno di 30 minuti.</p><p><strong>Step 1 — Setup (3 min):</strong> Se non l&#39;hai fatto, configura il design system caricando lo screenshot del tuo sito o il logo aziendale.</p><p><strong>Step 2 — Prompt principale (3 min):</strong></p><pre><code>Crea un pitch deck da 10 slide per [il tuo progetto/azienda].
+Struttura: cover, problema, soluzione, mercato (TAM/SAM/SOM),
+           prodotto (screenshots), business model,
+           traction (numeri chiave), team, roadmap, ask.
+Target: [tipo di investor o stakeholder]
+Tono: [scegli: visionario/concreto/tecnico]
+Punti di forza da enfatizzare: [2-3 elementi distintivi]
+Usa placeholder realistici per i dati che non specifico.
+</code></pre><p><strong>Step 3 — Iterazione per slide (10 min):</strong> Apri ogni slide e usa i tweaks per aggiustare testi e layout. Concentrati sulle slide più importanti: cover, problema, soluzione, ask.</p><p><strong>Step 4 — Coerenza visiva (5 min):</strong> Nella chat: &quot;Controlla la coerenza visiva tra tutte le slide: font, colori e spaziature devono essere uniformi.&quot;</p><p><strong>Step 5 — Export (2 min):</strong> Esporta in PPTX. Apri in PowerPoint o Google Slides e sostituisci i dati placeholder con quelli reali.</p><hr><h2 id="test-livello-2">✅ TEST LIVELLO 2</h2><ol><li>Qual è il metodo più accurato per costruire un design system automatico?</li><li>Quali sono i tre livelli di condivisione in Claude Design?</li><li>Quando usi l&#39;export HTML invece del PDF?</li><li>Cosa è incluso in un &quot;handoff bundle&quot; che non è incluso in un normale export Figma?</li><li>Come si chiama il protocollo che ha permesso l&#39;integrazione Canva-Claude?</li></ol><p><strong>Risposte:</strong> Dal codebase / Privato, Link interno, Accesso modifica / HTML per prototipi interattivi o da implementare / Il design intent (le motivazioni delle scelte) / MCP (Model Context Protocol)</p>
+    </section>
+
+    <section class="panel">
+      <h2>Corso Completo - Parte 2</h2>
+      <hr><hr><h1 id="livello-3">░░ LIVELLO 3 ░░</h1><h1 id="avanzato">AVANZATO</h1><h3 id="qualità-professionale-workflow-complessi-casi-duso-per-ruolo">Qualità professionale, workflow complessi, casi d&#39;uso per ruolo</h3><hr><h2 id="l31-prompt-engineering-avanzato-per-il-design">L3.1 — Prompt Engineering Avanzato per il Design</h2><p>Al livello avanzato, la differenza tra un output mediocre e uno eccellente sta nella <strong>qualità del contesto fornito</strong>, non nella complessità del prompt. Analizziamo le tecniche che separano gli utenti intermedi dagli avanzati.</p><h3 id="tecnica-1-il-brief-stratificato">Tecnica 1: Il Brief Stratificato</h3><p>Invece di un prompt unico, struttura l&#39;input in strati:</p><p><strong>Strato 1 — Contesto di business:</strong></p><pre><code>Contesto: [nome azienda] è un [tipo di azienda] che serve [mercato target].
+Il prodotto principale è [prodotto] che risolve [problema].
+Siamo in uno stadio [early stage / growth / maturo].
+</code></pre><p><strong>Strato 2 — Obiettivo specifico del deliverable:</strong></p><pre><code>Questo [landing page / deck / prototipo] serve a [scopo preciso].
+Il destinatario è [persona specifica, non generica].
+La singola cosa più importante che deve comunicare è [una frase].
+L&#39;azione che vogliamo che faccia dopo è [azione specifica].
+</code></pre><p><strong>Strato 3 — Vincoli e preferenze visive:</strong></p><pre><code>Tono visivo: [3 aggettivi]
+Da evitare assolutamente: [es. animazioni aggressive, colori troppo vivaci]
+Ispirazione: [riferimento a brand o stile visivo familiare]
+Vincoli tecnici: [es. deve funzionare stampato in bianco e nero]
+</code></pre><p><strong>Strato 4 — Struttura richiesta:</strong></p><pre><code>Struttura obbligatoria: [sezioni in ordine]
+Elementi opzionali da includere se sensato: [lista]
+Proporzioni approssimative: [es. hero grande, features compatta]
+</code></pre><h3 id="tecnica-2-la-progressione-deliberata">Tecnica 2: La Progressione Deliberata</h3><p>Invece di chiedere tutto in un prompt, costruisci progressivamente:</p><pre><code>Prompt 1: &quot;Crea SOLO lo scheletro strutturale di [output]:
+           nessun colore definitivo, solo layout e gerarchia.&quot;
+
+→ Approva la struttura
+
+Prompt 2: &quot;Ora applica il design system completo mantenendo
+           esattamente questa struttura.&quot;
+
+→ Approva il look generale
+
+Prompt 3: &quot;Raffina i dettagli tipografici e aumenta il contrasto
+           visivo tra le sezioni.&quot;
+
+→ Iterazioni puntuali con Tweaks
+</code></pre><p>Questo approccio separa le decisioni di struttura (difficili da cambiare dopo) dalle decisioni estetiche (facili da iterare).</p><h3 id="tecnica-3-il-confronto-simultaneo">Tecnica 3: Il Confronto Simultaneo</h3><p>Richiedi più varianti e confrontale:</p><pre><code>&quot;Crea 3 varianti della hero section di questa landing page:
+- Variante A: minimalista, solo testo e molto spazio bianco
+- Variante B: visivamente ricca, con elementi grafici e colore
+- Variante C: data-driven, con numeri e statistiche in evidenza
+Mostrami le tre versioni una sotto l&#39;altra per confrontarle.&quot;
+</code></pre><p>Scegli gli elementi migliori da ciascuna e combina:</p><pre><code>&quot;Prendi il layout di A, la palette di colori di B,
+e il trattamento dei numeri di C.&quot;
+</code></pre><h3 id="tecnica-4-il-prompt-con-anti-pattern">Tecnica 4: Il Prompt con Anti-Pattern</h3><p>Definire cosa NON vuoi è spesso più efficace di definire cosa vuoi:</p><pre><code>&quot;Crea la landing page per [prodotto].
+NON fare: hero con immagine stock generica, layout in tre colonne
+           simmetrico, gradiente viola, font Inter/Roboto,
+           tono entusiasta e generico (&#39;Trasforma il tuo business!&#39;).
+
+FAI: layout asimmetrico, tipografia editoriale, tono diretto
+     e concreto, usa dati e numeri specifici, colori sobri
+     con un solo accento forte.&quot;
+</code></pre><hr><h2 id="l32-guida-per-ruolo-come-massimizzare-il-valore">L3.2 — Guida per Ruolo: Come Massimizzare il Valore</h2><h3 id="per-i-founder-e-gli-imprenditori">Per i Founder e gli Imprenditori</h3><p><strong>Il problema che Claude Design risolve:</strong> hai un&#39;idea di business che vedi chiaramente nella testa, ma non riesci a mostrarla visivamente senza aspettare giorni o spendere migliaia di euro in freelance.</p><p><strong>I tuoi casi d&#39;uso prioritari:</strong></p><p><strong>1. Pitch Deck di Investor:</strong> Il tuo pitch deck deve convincere qualcuno a darti soldi in 10-15 minuti. Non basta che sia esteticamente corretto: deve raccontare una storia con una logica visiva convincente.</p><p>Template di prompt specifico:</p><pre><code>Crea un pitch deck da [N] slide per [nome startup].
+Stiamo raccogliendo [seed / serie A / bridge] da [tipo investor].
+Il nostro hook principale è: [una frase che cattura l&#39;attenzione]
+Il problema che risolviamo: [descrizione precisa]
+La nostra soluzione è unica perché: [differenziatore]
+I numeri che voglio mettere in evidenza: [traction, mercato, proiezioni]
+Il team è composto da: [background rilevante, non nomi]
+Tono: credibile, ambizioso ma non arrogante.
+Vuoi che i VC uscano pensando: [cosa devono ricordare]
+</code></pre><p><strong>2. Demo Product per Sales:</strong></p><pre><code>Crea una sequenza di 5-7 screenshot che simulano il flusso
+principale del nostro prodotto [nome].
+Il flusso da mostrare: [step 1 → step 2 → step 3...]
+Il problema risolto in ogni step: [spiegazione]
+Stile: identico al nostro brand (usa il design system configurato)
+Queste screenshot servono per le sales demo: devono sembrare
+screenshot reali del prodotto, non mockup.
+</code></pre><p><strong>3. Landing Page per Test di Mercato:</strong> Invece di costruire il sito prima di validare, crea una landing page con Claude Design, pubblicala (export HTML), e misura le conversioni prima di investire nello sviluppo.</p><pre><code>Crea una landing page per testare l&#39;interesse verso [prodotto].
+Questa è una pagina di validazione: devo capire se le persone
+vogliono iscriversi alla waitlist.
+Target: [persona specifica]
+Il messaggio principale deve rispondere alla domanda:
+&quot;Vale la pena iscriversi?&quot; con un sì immediato.
+Includi: un form email above the fold, prova sociale (anche placeholder),
+         garanzia di no-spam, specifiche del prodotto in 3 punti.
+Ottimizza per conversione, non per estetica.
+</code></pre><hr><h3 id="per-i-product-manager">Per i Product Manager</h3><p><strong>Il problema che Claude Design risolve:</strong> il ciclo brief → mockup → revisione → approvazione → sviluppo richiede settimane. Claude Design lo comprime a ore.</p><p><strong>I tuoi casi d&#39;uso prioritari:</strong></p><p><strong>1. Feature Mockup per Grooming:</strong></p><pre><code>Crea un wireframe mid-fidelity per la feature [nome].
+Contesto: [descrizione del prodotto esistente]
+User story: Come [utente], voglio [azione] per [beneficio].
+Schermata da mostrare: [schermata specifica, non l&#39;intera app]
+Flusso: [step che l&#39;utente compie]
+Edge cases da visualizzare: [stati vuoti, errori, loading]
+Pubblico del wireframe: team di sviluppo nel grooming del backlog.
+Nota: non servono colori definitivi, serve chiarezza strutturale.
+</code></pre><p><strong>2. Prototipo per User Testing:</strong></p><pre><code>Crea un prototipo interattivo (mid-fi) per testare il flusso di
+[nome flusso] con utenti reali.
+Il prototipo deve essere sufficientemente realistico da non
+distrarre gli utenti durante il test.
+Flusso da prototipare: [step 1 → step 2 → step N]
+Cosa vogliamo validare con il test: [ipotesi specifica]
+Stile: vicino al nostro brand ma non deve sembrare production-ready.
+Includi: stati di loading, messaggi di feedback, stati vuoti.
+</code></pre><p><strong>3. Roadmap Visiva per Stakeholder:</strong></p><pre><code>Crea una slide o un one-pager che visualizza la nostra
+roadmap prodotto per i prossimi [N mesi/trimestri].
+Struttura temporale: [Q1 / Q2 / Q3 / Q4 o mensile]
+Temi principali: [lista temi]
+Features in roadmap: [lista per tema/periodo]
+Audience: [leadership / board / team / investitori]
+Evidenzia: [quale milestone è più importante]
+Tono: strategico e orientato all&#39;impatto, non tecnico.
+</code></pre><hr><h3 id="per-i-marketing-manager">Per i Marketing Manager</h3><p><strong>Il problema che Claude Design risolve:</strong> produrre asset grafici coerenti, brandizzati e in quantità è costoso (designer interno o agenzia), lento (tempi di produzione), e spesso non scalabile.</p><p><strong>I tuoi casi d&#39;uso prioritari:</strong></p><p><strong>1. Campagna Social Coordinata:</strong></p><pre><code>Crea una serie di [N] grafiche coordinate per una campagna
+[nome campagna / tema] su [piattaforme].
+
+Formati necessari:
+- [N] post feed Instagram (1080x1080)
+- [N] stories Instagram/LinkedIn (1080x1920)  
+- [N] post LinkedIn (formato landscape)
+
+Messaggio principale della campagna: [headline]
+Messaggi secondari (uno per post): [lista]
+Stile: coerente col design system, [aggettivo].
+Filo conduttore visivo: [elemento che lega la serie]
+</code></pre><p><strong>2. Landing Page per Campagna:</strong></p><pre><code>Crea una landing page dedicata per la campagna [nome].
+Questa pagina riceve traffico da [canale: Google Ads / email / social].
+Il visitatore arriva già sapendo [cosa sa il visitatore].
+Deve uscire avendo fatto: [azione specifica].
+Differenze rispetto alla nostra homepage: [più focalizzata su X]
+CTA principale: [testo del bottone e destinazione]
+A/B testing: crea anche una variante con [elemento diverso] per test.
+</code></pre><p><strong>3. Email Newsletter / Annuncio:</strong></p><pre><code>Crea il layout HTML per una newsletter che annuncia [evento/lancio].
+Lista: [numero] iscritti, segmento [tipo di audience]
+Contenuto principale: [cosa annunci]
+Struttura: header brand, corpo con [elementi], footer
+Tono: [informativo/entusiastico/urgente]
+CTA: [cosa devono fare i lettori]
+Ottimizza per: [mobile first / click-through / lettura]
+</code></pre><hr><h3 id="per-i-designer-professionisti">Per i Designer Professionisti</h3><p><strong>Attenzione:</strong> Claude Design non è un sostituto per Figma nel design system professionale o nella collaborazione real-time ad alta precisione. Ma offre un vantaggio enorme in fasi specifiche del lavoro.</p><p><strong>I tuoi casi d&#39;uso prioritari:</strong></p><p><strong>1. Design Exploration Rapida:</strong></p><pre><code>Crea 5 direzioni visive molto diverse per la homepage
+di [prodotto]. Ogni direzione deve essere esteticamente
+coerente internamente ma distinta dalle altre.
+Direzioni:
+A) [aggettivo estremo, es: brutalmente minimale]
+B) [aggettivo opposto, es: massimalista e ricco]
+C) [ispirazione specifica, es: stile editorial di Monocle]
+D) [approccio tecnico, es: data-first, tabelle e numeri]
+E) [approccio emozionale, es: narrativo e fotografico]
+Queste servono come mood board per presentare al cliente.
+</code></pre><p><strong>2. Prototipo Veloce prima della Riunione:</strong></p><pre><code>Crea rapidamente un prototipo di [feature] per mostrarlo
+al cliente tra [N ore/minuti].
+Non ho tempo di farlo in Figma. Deve sembrare professionale
+ma non ho bisogno di produzione finale.
+Flusso: [step principali]
+Stile: vicino al nostro design system (usa quello configurato)
+Focus: [cosa è più importante comunicare]
+</code></pre><p><strong>3. Documentazione Visiva:</strong></p><pre><code>Crea una slide deck che documenta il nostro design system
+per i nuovi membri del team.
+Includi: palette colori con esadecimali, scale tipografiche,
+         esempi di componenti principali, regole di spacing,
+         esempi di do/don&#39;t.
+Formato: presentazione da circa [N] slide.
+Audience: nuovi designer junior o sviluppatori frontend.
+</code></pre><hr><h2 id="l33-gestire-loutput-quando-è-abbastanza-buono">L3.3 — Gestire l&#39;Output: Quando è Abbastanza Buono</h2><p>Uno degli errori più frequenti al livello avanzato è il <strong>perfezionismo da iterazione</strong>: continuare a chiedere modifiche senza che l&#39;output migliori significativamente.</p><h3 id="il-principio-dellottimo-vs-il-perfetto">Il Principio dell&#39;Ottimo vs il Perfetto</h3><p>Claude Design è ottimizzato per velocità e coerenza, non per perfezione assoluta. L&#39;output è quasi sempre &quot;abbastanza buono&quot; entro 3-5 iterazioni. Dopodiché, i miglioramenti marginali diventano decrescenti.</p><p><strong>Regola pratica:</strong> se dopo 5 iterazioni non sei soddisfatto, il problema è probabilmente nel brief originale, non nel design. Ricomincia con un prompt più preciso invece di continuare a iterare.</p><h3 id="quando-passare-a-canva-o-figma">Quando passare a Canva o Figma</h3><p>Usa Canva per il post-processing se hai bisogno di:</p><ul><li>Animazioni e transizioni</li><li>Pubblicazione diretta sui social</li><li>Collaborazione real-time con stakeholder non tecnici</li><li>Template library per varianti future</li></ul><p>Usa Figma se hai bisogno di:</p><ul><li>Precisione al pixel in un design system enterprise</li><li>Component library con varianti, states, auto-layout</li><li>Collaborazione real-time di un team di designer</li><li>Design tokens integrati con il codice</li></ul><hr><h2 id="l34-esercizio-avanzato-workflow-completo-per-pm">L3.4 — Esercizio Avanzato: Workflow Completo per PM</h2><p><strong>Scenario:</strong> sei un PM e devi presentare domani mattina una nuova feature al board. Hai 45 minuti.</p><p><strong>Step 1 — Brief strutturato (5 min):</strong></p><pre><code>Crea una presentazione da 8 slide per il board per approvare
+lo sviluppo di [nome feature].
+
+Contesto azienda: [nome] è un SaaS di [categoria] con [N] clienti.
+Feature proposta: [nome feature] — [descrizione in una frase]
+Problema che risolve: [pain point clienti + impatto business]
+Costo di sviluppo stimato: [sprints/settimane]
+Beneficio atteso: [metrica che migliora + di quanto]
+Rischi principali: [1-2 rischi e mitigazione]
+
+Struttura slide:
+1. Cover con titolo della feature
+2. Il problema (citazione cliente + dato quantitativo)
+3. La soluzione (mockup/demo)
+4. Impatto atteso (grafico proiezione)
+5. Piano di sviluppo (timeline)
+6. Risorse necessarie
+7. Rischi e mitigazione
+8. Decisione richiesta (approvazione / budget)
+
+Audience: board — vogliono numeri, non dettagli tecnici.
+Tono: diretto, basato su dati, orientato al ROI.
+</code></pre><p><strong>Step 2 — Prototipo feature (10 min):</strong></p><pre><code>Slide 3 deve mostrare un mockup della feature.
+Crea un&#39;immagine separata: prototipo della schermata
+[nome feature] nel nostro prodotto.
+Flusso: [step 1] → [step 2] → [step 3]
+Deve sembrare uno screenshot reale del prodotto.
+</code></pre><p><strong>Step 3 — Grafico proiezione (5 min):</strong></p><pre><code>Slide 4: crea un grafico a linee che mostra:
+- Curva attuale (metrica X negli ultimi 6 mesi)
+- Curva proiettata post-feature (nei prossimi 6 mesi)
+Usa questi dati placeholder realistici per [settore]:
+[fornisci o lascia stimare a Claude]
+</code></pre><p><strong>Step 4 — Review e export (5 min):</strong> Usa i Tweaks per aggiustare testi e numeri. Esporta PPTX.</p><hr><h2 id="test-livello-3">✅ TEST LIVELLO 3</h2><ol><li>Qual è il vantaggio della &quot;progressione deliberata&quot; rispetto a un unico prompt complesso?</li><li>Quando un PM usa i wireframe lo-fi vs mid-fi?</li><li>Qual è il segnale che ti dice che dovresti ripartire con un nuovo prompt invece di continuare a iterare?</li><li>Cosa offre Claude Design che Figma Dev Mode non offre nei handoff allo sviluppatore?</li><li>Qual è il caso d&#39;uso di Claude Design più utile per un designer professionista (non PM, non marketer)?</li></ol><p><strong>Risposte:</strong> Separa le decisioni strutturali (difficili da cambiare) da quelle estetiche (facili da iterare) / Lo-fi per grooming/comunicazione interna, mid-fi per user testing / Se dopo 5 iterazioni non sei soddisfatto, il problema è nel brief / Il design intent: le motivazioni delle scelte visive / Design exploration rapida e prototipazione veloce pre-riunione</p><hr><hr><h1 id="livello-4">░░ LIVELLO 4 ░░</h1><h1 id="expert">EXPERT</h1><h3 id="enterprise-integrazioni-ottimizzazione-limitazioni-e-futuro">Enterprise, integrazioni, ottimizzazione, limitazioni e futuro</h3><hr><h2 id="l41-configurazione-enterprise">L4.1 — Configurazione Enterprise</h2><h3 id="attivazione-per-organizzazioni-enterprise">Attivazione per organizzazioni Enterprise</h3><p>Claude Design è <strong>disattivato di default</strong> per i piani Enterprise. Per attivarlo:</p><ol><li>Accedi al pannello di amministrazione su claude.ai</li><li>Vai su <strong>Organization Settings</strong></li><li>Cerca <strong>Anthropic Labs Products</strong> o <strong>Research Preview Features</strong></li><li>Attiva <strong>Claude Design</strong> per l&#39;organizzazione</li><li>(Opzionale) Limita l&#39;accesso a specifici team o ruoli</li></ol><h3 id="governance-del-design-system-aziendale">Governance del design system aziendale</h3><p>In contesti enterprise con più team, la gestione del design system richiede una governance chiara:</p><p><strong>Struttura raccomandata:</strong></p><ul><li><strong>Design system &quot;master&quot;:</strong> gestito dal team di design, approvato da Brand</li><li><strong>Varianti di design system:</strong> per prodotti/brand diversi, derivati dal master</li><li><strong>Permessi:</strong> solo il team di design può modificare il master; gli altri team possono creare varianti</li></ul><p><strong>Workflow di aggiornamento:</strong></p><pre><code>Rebrand o aggiornamento design system
+        ↓
+Team Design aggiorna il design system master in Claude Design
+        ↓
+Tutti i nuovi progetti ereditano automaticamente le modifiche
+        ↓
+I progetti esistenti restano sul vecchio sistema
+(nessuna modifica retroattiva automatica)
+</code></pre><h3 id="extra-usage-e-billing-enterprise">Extra usage e billing enterprise</h3><p>L&#39;utilizzo di Claude Design consuma quota dall&#39;abbonamento esistente. Per contesti ad alta intensità:</p><ul><li>I piani Enterprise possono attivare <strong>extra usage</strong> senza cambiare piano</li><li>Il billing dell&#39;extra usage è separato dalla quota standard</li><li>Per team con utilizzo molto elevato, valuta il piano Max 20x ($200/mese) per singoli utenti intensivi</li></ul><hr><h2 id="l42-integrazione-con-claude-code-il-handoff-bundle-in-dettaglio">L4.2 — Integrazione con Claude Code: il Handoff Bundle in Dettaglio</h2><p>Il handoff bundle è il ponte tra la prototipazione visiva e l&#39;implementazione tecnica. A livello expert, capire cosa contiene e come usarlo ti permette di ottimizzare sia il design che lo sviluppo.</p><h3 id="cosa-contiene-un-handoff-bundle">Cosa contiene un handoff bundle</h3><pre><code>handoff_bundle/
+├── design_intent.md          ← Ragioni delle scelte visive
+├── design_tokens.json        ← Colori, font, spaziature (valori esatti)
+├── component_specs/          
+│   ├── hero.md               ← Specifiche di ogni componente
+│   ├── card.md
+│   └── navigation.md
+├── layout_specs.md           ← Grid, proporzioni, breakpoint
+├── assets/                   
+│   ├── icons/                ← SVG degli icon usati
+│   └── images/               ← Placeholder con dimensioni esatte
+└── implementation_notes.md   ← Note per lo sviluppatore
+</code></pre><h3 id="come-passarlo-a-claude-code">Come passarlo a Claude Code</h3><p>Il bundle si passa a Claude Code con una singola istruzione. Il formato consigliato:</p><pre><code>[In Claude Code]
+Implementa questo design usando il handoff bundle allegato.
+Segui il design_intent.md per capire il &quot;perché&quot; di ogni scelta.
+Framework: [React / Vue / Next.js / HTML vanilla]
+CSS approach: [Tailwind / CSS modules / styled-components]
+Priorità: [mobile-first / desktop-first]
+Aspetti su cui puoi prendere decisioni autonome: [micro-interazioni, animazioni]
+Aspetti su cui devi seguire esattamente il bundle: [layout, colori, tipografia]
+</code></pre><h3 id="ottimizzare-il-design-per-il-handoff">Ottimizzare il design per il handoff</h3><p>Se sai che il design finirà in Claude Code, ottimizza il processo:</p><ol><li><strong>Usa componenti nominati:</strong> prima del handoff, rinomina gli elementi della canvas con nomi semantici (&quot;HeroSection&quot;, &quot;PricingCard&quot;, &quot;NavigationBar&quot;) così il bundle li nomina correttamente</li><li><strong>Specifica i breakpoint:</strong> aggiungi note nel design sulle versioni mobile/tablet</li><li><strong>Definisci gli stati interattivi:</strong> hover, focus, active, disabled — Claude Design li può visualizzare se richiesti esplicitamente</li></ol><hr><h2 id="l43-limitazioni-attuali-la-mappa-onesta">L4.3 — Limitazioni Attuali: la Mappa Onesta</h2><p>Conoscere i limiti di uno strumento è una competenza da expert. Claude Design ha limitazioni reali che devi considerare.</p><h3 id="limitazioni-tecniche">Limitazioni Tecniche</h3><p><strong>1. Animazioni complesse</strong> Claude Design non supporta transizioni sofisticate, effetti parallax, micro-interazioni animate o scroll-triggered animations. Puoi descriverle come intenzione nel design, ma non le vedi renderizzate.</p><p><em>Workaround:</em> usa note testuali nel design per descrivere le animazioni intese; implementa in Framer, Webflow o direttamente in codice dopo il handoff.</p><p><strong>2. Rendering 3D avanzato</strong> Supporto limitato a forme geometriche base. In demo interne Anthropic ha mostrato un globo 3D interattivo, ma non aspettarti output Three.js o Spline.</p><p><em>Workaround:</em> usa Claude Design per il layout, importa componenti 3D separatamente nella fase di sviluppo.</p><p><strong>3. Dati live e dashboard dinamiche</strong> I design sono statici. Non puoi connettere una visualizzazione a un database in tempo reale.</p><p><em>Workaround:</em> usa Claude Design per il layout e la struttura delle dashboard; implementa il binding dati nella fase di sviluppo con strumenti come Retool o codice custom.</p><p><strong>4. Generazione di immagini fotografiche</strong> Claude Design non genera immagini fotorealistiche. Usa placeholder vettoriali, icone SVG, e forme geometriche.</p><p><em>Workaround:</em> usa Midjourney, Adobe Firefly o DALL-E per le immagini; importale nel design via upload o placeholder URL.</p><h3 id="limitazioni-di-collaborazione">Limitazioni di Collaborazione</h3><p><strong>5. Nessun co-editing real-time</strong> La collaborazione è asincrona: un utente alla volta. Non ci sono cursori multipli in tempo reale.</p><p><em>Workaround:</em> usa URL interno per review, export Canva per collaborazione real-time post-draft.</p><h3 id="limitazioni-di-precisione">Limitazioni di Precisione</h3><p><strong>6. Precisione al pixel non garantita</strong> Per design system enterprise che richiedono controllo millimetrico su ogni componente, Figma rimane lo standard.</p><p><em>Workaround:</em> usa Claude Design per exploration e prototipazione rapida; raffina in Figma per produzione se necessario.</p><h3 id="limitazioni-di-accesso">Limitazioni di Accesso</h3><p><strong>7. Solo piani paganti</strong> Non disponibile sul piano gratuito. Minimo $20/mese (Pro).</p><p><strong>8. Enterprise off by default</strong> Richiede attivazione manuale da parte dell&#39;amministratore dell&#39;organizzazione.</p><p><strong>9. Rollout graduale</strong> Anche con piano compatibile, potresti non avere accesso immediato durante le prime settimane dal lancio.</p><hr><h2 id="l44-confronto-competitivo-approfondito">L4.4 — Confronto Competitivo Approfondito</h2><h3 id="claude-design-vs-figma">Claude Design vs Figma</h3><p>Figma ha perso oltre il <strong>7% del valore azionario</strong> il giorno del lancio di Claude Design. Il mercato ha interpretato l&#39;annuncio come una sfida. Ma la realtà è più sfumata.</p><div class="table-wrap"><table><thead><tr><th>Dimensione</th><th>Claude Design</th><th>Figma</th></tr></thead><tbody><tr><td>Curva di apprendimento</td><td>Zero</td><td>Alta (settimane per padronanza)</td></tr><tr><td>Target primario</td><td>Non-designer</td><td>Designer professionisti</td></tr><tr><td>Brand system</td><td>Automatico (da codebase)</td><td>Manuale (design tokens, variabili)</td></tr><tr><td>Velocità di prototipazione</td><td>Minuti</td><td>Ore (componenti già in libreria)</td></tr><tr><td>Precisione al pixel</td><td>Limitata</td><td>Totale</td></tr><tr><td>Collaborazione real-time</td><td>No</td><td>Sì (core feature)</td></tr><tr><td>Component library enterprise</td><td>No</td><td>Sì (con auto-layout, variants, states)</td></tr><tr><td>Handoff sviluppatori</td><td>Bundle semantico</td><td>Dev Mode (specifiche numeriche)</td></tr><tr><td>Animazioni</td><td>No</td><td>Sì (Smart Animate, Prototype)</td></tr><tr><td>Prezzo</td><td>Da $20/mese</td><td>Da $15/utente/mese</td></tr><tr><td>Impatto su Figma stock</td><td>-7% al lancio</td><td>—</td></tr></tbody></table></div><p><strong>Verdetto:</strong> Claude Design e Figma non sono sostituti. Claude Design ottimizza la fase di esplorazione e prototipazione rapida; Figma ottimizza la fase di design production e collaborazione di team professionisti. I migliori workflow li usano entrambi.</p><h3 id="claude-design-vs-canva">Claude Design vs Canva</h3><p>La relazione è di complementarietà, non competizione. Canva stessa ha collaborato attivamente allo sviluppo dell&#39;integrazione.</p><div class="table-wrap"><table><thead><tr><th>Dimensione</th><th>Claude Design</th><th>Canva</th></tr></thead><tbody><tr><td>Punto di partenza</td><td>Idea in linguaggio naturale</td><td>Template predefinito</td></tr><tr><td>Brand system</td><td>Automatico</td><td>Manuale (Brand Kit)</td></tr><tr><td>Creatività</td><td>Genera dal nulla</td><td>Personalizza template</td></tr><tr><td>Collaborazione</td><td>Asincrona</td><td>Real-time</td></tr><tr><td>Pubblicazione social</td><td>No (export)</td><td>Sì (diretta)</td></tr><tr><td>Animazioni</td><td>No</td><td>Sì (base)</td></tr><tr><td>Libreria template</td><td>Nessuna</td><td>Milioni</td></tr><tr><td>Integrazione reciproca</td><td>Export nativo verso Canva</td><td>Import da Claude Design</td></tr></tbody></table></div><p><strong>Workflow ottimale combinato:</strong> Claude Design per generare il primo draft brandizzato → Export verso Canva → Canva per rifinitura, collaborazione, pubblicazione.</p><h3 id="claude-design-vs-google-stitch">Claude Design vs Google Stitch</h3><p>Google Stitch è l&#39;alternativa di Google, emersa nella stessa finestra temporale. Il confronto è rilevante perché hanno approcci simili ma ecologie diverse.</p><div class="table-wrap"><table><thead><tr><th>Dimensione</th><th>Claude Design</th><th>Google Stitch</th></tr></thead><tbody><tr><td>Modello sottostante</td><td>Claude Opus 4.7</td><td>Gemini (versione Stitch)</td></tr><tr><td>Ecosistema di uscita</td><td>Claude Code, Canva</td><td>Google Workspace, Firebase</td></tr><tr><td>Handoff a codice</td><td>Bundle semantico</td><td>Export verso progetto Google</td></tr><tr><td>Collaborazione</td><td>Asincrona</td><td>Google Docs-like (real-time)</td></tr><tr><td>Integrazione enterprise</td><td>Sì (Team/Enterprise)</td><td>Sì (Google Workspace)</td></tr></tbody></table></div><p><strong>Verdetto:</strong> la scelta tra i due dipende dall&#39;ecosistema aziendale. Se sei full Google Workspace, Stitch si integra più naturalmente. Se usi Claude Code per lo sviluppo, Claude Design è la scelta ovvia.</p><hr><h2 id="l45-il-contesto-strategico-perché-esiste-claude-design">L4.5 — Il Contesto Strategico: Perché Esiste Claude Design</h2><p>Capire la strategia dietro un prodotto ti aiuta a anticipare la sua evoluzione e a usarlo in modo più intelligente.</p><h3 id="la-traiettoria-di-anthropic">La traiettoria di Anthropic</h3><p>Claude Design non è un prodotto isolato. È il terzo atto di una traiettoria precisa:</p><ul><li><strong>Giugno 2024:</strong> Artifacts trasforma Claude da chatbot a workspace collaborativo</li><li><strong>Fine 2025:</strong> Claude aggiunge produzione nativa di file (DOCX, PPTX, XLSX)</li><li><strong>Gennaio 2026:</strong> Claude Cowork — assistente agentivo per compiti office complessi</li><li><strong>Aprile 2026:</strong> Claude Design — workspace di design visivo</li></ul><p>Il pattern è chiaro: Anthropic sta costruendo una <strong>suite di produttività AI</strong> che compete con Microsoft 365 e Google Workspace, ma con IA come strato primario invece che come add-on.</p><h3 id="anthropic-labs-e-mike-krieger">Anthropic Labs e Mike Krieger</h3><p>Claude Design è stato sviluppato da <strong>Anthropic Labs</strong>, una divisione interna con maggiore libertà sperimentale. La nomina di <strong>Mike Krieger</strong> come co-lead è il segnale più chiaro della direzione:</p><p>Krieger è il co-fondatore di Instagram. Ha costruito il prodotto consumer più visivamente orientato della storia di internet. Il fatto che Anthropic lo abbia messo a capo del laboratorio che ha sviluppato Claude Design — e che abbia lasciato il board di Figma in coincidenza con il lancio — non è casuale.</p><h3 id="la-partnership-con-canva-la-strategia-profonda">La Partnership con Canva: la Strategia Profonda</h3><p>Canva non è un semplice &quot;partner di export&quot;. È il design backend di Claude Design.</p><p><strong>Il motivo strategico per Canva:</strong> ogni utente che crea un design in Claude Design e lo esporta su Canva diventa un utente Canva. Claude Design è, per Canva, un acquisizione channel di milioni di utenti che normalmente non userebbero uno strumento di design. È la stessa strategia che ha reso Canva dominante nel browser-based design: essere il tool verso cui tutti gli altri esportano.</p><p><strong>Il motivo strategico per Anthropic:</strong> non dover costruire le funzionalità di publishing, collaborazione real-time, e template library. Canva le ha già. L&#39;integrazione è più veloce e più profonda di quanto potrebbe essere un build interno.</p><h3 id="impatti-sul-mercato">Impatti sul Mercato</h3><ul><li><strong>Figma:</strong> -7% nel giorno del lancio. Il mercato teme la competizione nel segmento della prototipazione rapida, dove Figma non è forte quanto nel design professionale.</li><li><strong>Adobe:</strong> -2% nei giorni precedenti al lancio. Pressione su Adobe Express e sul segmento &quot;design per non-designer&quot; della suite Creative Cloud.</li><li><strong>Valutazione Anthropic:</strong> Bloomberg ha riportato nei giorni precedenti al lancio offerte di funding che valorizzerebbero Anthropic a $800 miliardi o più — quasi alla pari di OpenAI.</li></ul><hr><h2 id="l46-anticipare-levoluzione-del-prodotto">L4.6 — Anticipare l&#39;Evoluzione del Prodotto</h2><p>Claude Design è in &quot;research preview&quot; — sta evolvendo attivamente. Sulla base delle dichiarazioni ufficiali di Anthropic e dei pattern di sviluppo, ecco cosa aspettarsi:</p><h3 id="integrazioni-annunciate-o-molto-probabili-breve-termine">Integrazioni annunciate o molto probabili (breve termine)</h3><p>Anthropic ha dichiarato esplicitamente: <em>&quot;Nelle prossime settimane renderemo più facile costruire integrazioni con Claude Design, così potrete connetterlo a più strumenti già in uso.&quot;</em></p><p>Sulla base dei connettori esistenti di Claude e dei pattern di Cowork:</p><ul><li><strong>Slack:</strong> notifiche di design pronti, condivisione via messaggio</li><li><strong>Google Drive:</strong> salvataggio automatico, accesso a brief e documenti</li><li><strong>Notion:</strong> integrazione con project management e wiki aziendale</li></ul><h3 id="funzionalità-probablement-in-sviluppo-medio-termine">Funzionalità probablement in sviluppo (medio termine)</h3><ul><li><strong>Animazioni base:</strong> la domanda è alta, la limitazione è nota</li><li><strong>Collaborazione real-time:</strong> la limitazione più criticata nella research preview</li><li><strong>Generazione di immagini contestuali:</strong> integrazione con modelli di image generation</li><li><strong>Versioning e storia:</strong> track changes per i design nel tempo</li></ul><hr><h2 id="l47-esercizio-expert-workflow-enterprise-end-to-end">L4.7 — Esercizio Expert: Workflow Enterprise End-to-End</h2><p><strong>Scenario:</strong> sei il responsabile marketing di una scaleup B2B. Devi produrre materiali per il lancio di un nuovo prodotto: landing page, pitch deck per sales, e serie di 4 post LinkedIn. Budget per designer: zero. Tempo: 2 ore.</p><p><strong>Phase 1 — Setup (10 min):</strong></p><ol><li>Configura il design system dal codebase o dal sito aziendale</li><li>Crea un nuovo progetto &quot;Lancio [Nome Prodotto]&quot;</li><li>Carica il brief del prodotto (PDF o DOCX) come reference</li></ol><p><strong>Phase 2 — Landing Page (30 min):</strong></p><pre><code>[Con il brief allegato] Crea la landing page per il lancio
+di [prodotto]. Usa tutte le informazioni nel documento allegato.
+Target: [ICP del prodotto]
+Obiettivo: generare lead per demo
+Tono: [dal brief]
+Includi: hero con headline value-based, proof points con dati,
+         how it works in 3 step, form demo above the fold,
+         social proof (usa nomi realistici come placeholder),
+         FAQ con le 3 obiezioni più comuni in questo settore.
+</code></pre><p>Itera con 2-3 Tweaks. Export HTML per il team tecnico che la pubblica.</p><p><strong>Phase 3 — Sales Deck (30 min):</strong></p><pre><code>Crea un sales deck da 12 slide per le chiamate di discovery
+del nostro team sales. Pubblico: potenziali clienti [tipo ICP].
+Basati sul design della landing page che ho appena creato:
+stessa palette, stessa tipografia.
+Struttura: [adatta per sales discovery, non investor pitch]
+Non fare domande retoriche nelle slide: usa titoli che
+affermano i benefit, non che li chiedono.
+</code></pre><p>Export PPTX. Il team sales ha le slide per domani.</p><p><strong>Phase 4 — Serie LinkedIn (20 min):</strong></p><pre><code>Crea una serie di 4 post LinkedIn coordinati per il lancio.
+Ogni post deve stare in piedi da solo ma contribuire a
+una narrativa complessiva sul lancio.
+
+Post 1: Il problema che [prodotto] risolve (educazionale)
+Post 2: Come funziona (product-led)
+Post 3: Risultato di un cliente (social proof, usa placeholder realistico)
+Post 4: Lancio ufficiale con CTA
+
+Formato: 1080x1080px, testo sovrapposto all&#39;immagine,
+         stile coerente con il brand.
+Mantieni lo stesso stile visivo della landing page.
+</code></pre><p>Export delle 4 grafiche. Pronte per la pubblicazione su Canva o direttamente.</p><p><strong>Phase 5 — Handoff (10 min):</strong></p><pre><code>Crea il handoff bundle completo della landing page per il
+team di sviluppo che la implementerà in [framework].
+Include: tutti i design token, specifiche dei componenti,
+         note sull&#39;intento di design, breakpoint mobile/tablet/desktop.
+</code></pre><p>Passa il bundle a Claude Code o al team tecnico.</p><p><strong>Risultato in 2 ore:</strong> landing page, 12 slide, 4 grafiche social, handoff per sviluppo. Pronti per produzione.</p><hr><h2 id="test-livello-4-finale">✅ TEST LIVELLO 4 — FINALE</h2><ol><li>Come si attiva Claude Design per un&#39;organizzazione Enterprise?</li><li>Cosa contiene un handoff bundle che un export Figma standard non include?</li><li>Elenca 3 limitazioni attuali di Claude Design e il workaround per ciascuna.</li><li>Qual è la strategia di Canva nell&#39;integrazione con Claude Design?</li><li>Perché la nomina di Mike Krieger come co-lead di Anthropic Labs è significativa per la direzione di Claude Design?</li><li>In quale scenario useresti Claude Design + Canva invece di Claude Design da solo?</li><li>Qual è l&#39;unico caso in cui conviene ricominciare con un nuovo prompt invece di iterare?</li></ol><p><strong>Risposte:</strong></p><ol><li>Organization Settings → Anthropic Labs Products → Attiva Claude Design</li><li>Il design intent: le motivazioni delle scelte visive (non solo le specifiche numeriche)</li><li>Animazioni (workaround: note testuali + implementazione in Framer/codice) / Dati live (workaround: struttura in CD + binding in sviluppo) / Immagini fotografiche (workaround: Midjourney/Firefly + import)</li><li>Ogni export verso Canva è un nuovo utente nell&#39;ecosistema Canva; Claude Design è un acquisition channel per Canva</li><li>Krieger è il co-fondatore di Instagram — la piattaforma più visualmente orientata mai costruita. La sua guida indica che Anthropic punta a un&#39;esperienza visiva di altissimo livello consumer</li><li>Quando hai bisogno di pubblicazione diretta sui social, animazioni, collaborazione real-time con non-tecnici, o template per varianti future</li><li>Se dopo 5 iterazioni il risultato non soddisfa, il problema è nel brief originale, non nel design</li></ol><hr><hr><h1 id="appendici">APPENDICI</h1><hr><h2 id="appendice-a-cheat-sheet-prompt-copia-e-usa">APPENDICE A — Cheat Sheet Prompt (Copia e Usa)</h2><h3 id="template-base-universale">Template Base Universale</h3><pre><code>Crea [PRODOTTO] per [AUDIENCE].
+Obiettivo: [cosa deve fare/capire il lettore]
+Tono visivo: [3 aggettivi]
+Struttura: [sezioni in ordine]
+NON fare: [3 cose da evitare]
+</code></pre><h3 id="modificatori-di-tono-più-usati">Modificatori di Tono Più Usati</h3><ul><li>&quot;Professionale senza essere corporate&quot;</li><li>&quot;Minimalista in stile nordic design&quot;</li><li>&quot;Bold e diretto, come un quotidiano finanziario&quot;</li><li>&quot;Caldo e umano, mai freddo o distante&quot;</li><li>&quot;Tech-forward ma accessibile&quot;</li><li>&quot;Premium senza essere ostentato&quot;</li><li>&quot;Data-driven: numeri e metriche in primo piano&quot;</li></ul><h3 id="comandi-di-iterazione-più-efficaci">Comandi di Iterazione Più Efficaci</h3><ul><li>&quot;Aumenta il contrasto visivo tra le sezioni&quot;</li><li>&quot;Rendi più respiro, il layout è compresso&quot;</li><li>&quot;Il tono è troppo [aggettivo], alleggeriscilo&quot;</li><li>&quot;Enfatizza maggiormente [elemento specifico]&quot;</li><li>&quot;Questo componente sembra fuori stile col resto&quot;</li><li>&quot;Applica le modifiche che abbiamo fatto qui a tutto il documento&quot;</li></ul><hr><h2 id="appendice-b-tabella-export-formato-per-contesto">APPENDICE B — Tabella Export: Formato per Contesto</h2><div class="table-wrap"><table><thead><tr><th>Contesto d&#39;uso</th><th>Formato Consigliato</th></tr></thead><tbody><tr><td>Email a cliente o manager</td><td>PDF</td></tr><tr><td>Presentazione live</td><td>PPTX</td></tr><tr><td>Review interna veloce</td><td>URL interno</td></tr><tr><td>Consegna a team tecnico</td><td>HTML + Handoff Bundle</td></tr><tr><td>Collaborazione con team non-tecnico</td><td>Export → Canva</td></tr><tr><td>Pubblicazione sui social</td><td>Export → Canva</td></tr><tr><td>Stampa fisica</td><td>PDF (verifica risoluzione)</td></tr><tr><td>Embedding in altro sistema</td><td>HTML standalone</td></tr></tbody></table></div><hr><h2 id="appendice-c-checklist-per-ogni-progetto">APPENDICE C — Checklist per Ogni Progetto</h2><h3 id="prima-di-iniziare">Prima di iniziare</h3><ul><li>[ ] Design system configurato (codebase / file brand / web capture)?</li><li>[ ] Reference material caricato (brief, screenshot, dati)?</li><li>[ ] Audience e obiettivo chiari e scritti nel prompt?</li><li>[ ] Formato di export finale già deciso?</li></ul><h3 id="durante-la-creazione">Durante la creazione</h3><ul><li>[ ] Struttura approvata prima di iterare sull&#39;estetica?</li><li>[ ] Non più di 5 iterazioni senza rivalutare il brief?</li><li>[ ] Testi placeholder sostituiti con testi reali?</li><li>[ ] Coerenza visiva verificata su tutto il documento?</li></ul><h3 id="prima-dellexport">Prima dell&#39;export</h3><ul><li>[ ] Formato di export corretto per il destinatario?</li><li>[ ] Handoff bundle preparato se va a sviluppo?</li><li>[ ] Permessi di condivisione impostati correttamente?</li></ul><hr><h2 id="appendice-d-glossario-tecnico">APPENDICE D — Glossario Tecnico</h2><p><strong>Adjustment Knobs:</strong> Slider interattivi generati da Claude su richiesta per regolare parametri visivi (spaziatura, colore, dimensioni) in tempo reale senza dover specificare valori numerici.</p><p><strong>Anthropic Labs:</strong> Divisione interna di Anthropic dedicata a prodotti sperimentali. Co-lead: Mike Krieger (co-fondatore di Instagram). Ha sviluppato Claude Design, Claude Cowork e i relativi plugin.</p><p><strong>Artifacts:</strong> Funzionalità introdotta a giugno 2024 con Claude 3.5 Sonnet che trasforma Claude da chat a workspace collaborativo. Precursore tecnico di Claude Design.</p><p><strong>Canvas:</strong> La tela di lavoro centrale dell&#39;interfaccia di Claude Design dove il design prende forma in tempo reale.</p><p><strong>Claude Code:</strong> Tool a riga di comando agentivo di Anthropic per il coding. Destinatario naturale degli handoff bundle di Claude Design per l&#39;implementazione in produzione.</p><p><strong>Claude Cowork:</strong> Assistente agentivo per compiti d&#39;ufficio complessi, lanciato a gennaio 2026. Il &quot;fratello enterprise&quot; di Claude Design.</p><p><strong>Design Intent:</strong> Le motivazioni dietro le scelte visive di un design. Incluso nel handoff bundle di Claude Design, non nei classici export Figma. Permette a Claude Code di prendere decisioni implementative coerenti.</p><p><strong>Design System:</strong> L&#39;insieme di regole visive di un brand (colori, font, componenti, spaziature). Claude Design lo costruisce automaticamente leggendo il codebase o i file di brand durante l&#39;onboarding.</p><p><strong>Handoff Bundle:</strong> Il pacchetto di dati generato da Claude Design quando un design è pronto per lo sviluppo. Contiene: design token, specifiche componenti, layout, e design intent. Passato a Claude Code con un&#39;unica istruzione.</p><p><strong>MCP (Model Context Protocol):</strong> Protocollo open-source di Anthropic per connettere modelli AI a strumenti esterni. Canva ha rilasciato un MCP per Claude a luglio 2025. Base tecnica dell&#39;integrazione Claude Design ↔ Canva.</p><p><strong>Opus 4.7:</strong> Il modello AI che alimenta Claude Design. Caratteristiche chiave per il design: risoluzione immagini 3x superiore ai predecessori (2.576px), acuità visiva 98,5%, capacità di auto-validazione visiva.</p><p><strong>Research Preview:</strong> Stato attuale di Claude Design. Prodotto reale e funzionante, in evoluzione attiva. Disponibile per Pro, Max, Team, Enterprise.</p><p><strong>Tweaks:</strong> Il pannello di modifica contestuale che si apre cliccando su un elemento specifico della canvas. Ottimale per modifiche puntuali senza influenzare il resto del design.</p><p><strong>Web Capture Tool:</strong> Strumento che permette di puntare Claude all&#39;URL del proprio sito per catturare elementi visivi direttamente dalla pagina. Garantisce che i prototipi assomiglino al prodotto reale.</p><hr><h2 id="appendice-e-faq-complete">APPENDICE E — FAQ Complete</h2><p><strong>Claude Design è disponibile gratuitamente?</strong> No. Richiede piano Pro ($20/mese), Max ($100-200/mese), Team o Enterprise. Il piano gratuito non include l&#39;accesso.</p><p><strong>Posso scrivere prompt in italiano?</strong> Sì. Claude Opus 4.7 supporta pienamente l&#39;italiano. Puoi scrivere prompt e richiedere modifiche in italiano. Il contenuto testuale dei design può essere in italiano.</p><p><strong>I miei dati vengono usati per addestrare il modello?</strong> Per i piani Team ed Enterprise: no, per default. Per i piani Pro e Max, vedi la privacy policy aggiornata su support.claude.ai.</p><p><strong>Posso usare Claude Design per siti in produzione?</strong> L&#39;export HTML funziona. Il workflow consigliato per produzione è: Claude Design per il prototipo → handoff bundle → Claude Code per l&#39;implementazione.</p><p><strong>Claude Design funziona su mobile?</strong> L&#39;interfaccia web è accessibile da mobile, ma è ottimizzata per desktop. Per uso serio, usa un computer.</p><p><strong>Quanti design posso creare con il piano Pro?</strong> Il numero esatto dipende dalla complessità dei design e dall&#39;utilizzo complessivo dell&#39;account. Claude Design usa Opus 4.7, che ha un tokenizer che consuma il 10-35% in più rispetto ai modelli precedenti. Per uso intensivo, considera il piano Max.</p><p><strong>Perché per Enterprise è disattivato di default?</strong> È una scelta di governance: Anthropic lascia all&#39;amministratore la decisione di abilitare prodotti in research preview per l&#39;intera organizzazione.</p><p><strong>Claude Design sostituirà Figma?</strong> No, almeno non per i team di design professionisti. Claude Design rivoluziona il lavoro dei non-designer e la prototipazione rapida. Figma rimane superiore per design system enterprise, precisione al pixel, collaborazione real-time e component library complesse.</p><hr><p><em>Fine del Corso — Claude Design: Dal Beginner all&#39;Expert</em></p><p><em>Aggiornato: Aprile 2026 | Fonti: Anthropic Labs, TechCrunch, The Next Web, SiliconAngle, AdWeek, MacRumors, Neowin, Documentazione API Anthropic, AWS Blog, MindStudio</em></p>
+    </section>
+
+    <section class="panel" id="research-addendum">
+      <h2>Addendum 2026: Stato Reale del Prodotto (Ufficiale + Community)</h2>
+      <h3>1) Punti confermati ufficialmente (Anthropic/Canva/Help Center)</h3>
+      <ul>
+        <li>Claude Design è stato annunciato il <strong>17 aprile 2026</strong> come prodotto Anthropic Labs, in <em>research preview</em>, disponibile per piani <strong>Pro, Max, Team, Enterprise</strong>.</li>
+        <li>L'abilitazione Enterprise è <strong>off di default</strong> e richiede intervento admin nelle impostazioni organizzazione.</li>
+        <li>I flussi ufficiali includono: chat + canvas, commenti inline, edit diretto testo, export in <strong>PDF, PPTX, HTML standalone, Canva</strong>, e handoff verso Claude Code.</li>
+        <li>Canva conferma l'integrazione diretta con Claude Design e la trasformazione in output editabili/collaborativi nel proprio editor.</li>
+        <li>Nella documentazione help sono indicate anche limitazioni note (es. scomparsa commenti inline in alcuni casi, errori in compact view, problemi con repo molto grandi).</li>
+      </ul>
+
+      <h3>2) Insight community/dev (da usare come best practice, non come policy ufficiale)</h3>
+      <ul>
+        <li>Molti utenti Reddit riportano che output generici si riducono molto imponendo vincoli forti su design system e anti-pattern.</li>
+        <li>Diversi power-user raccomandano di curare molto il primo prompt/brief e poi fare iterazioni brevi e mirate sui singoli componenti.</li>
+        <li>Repository community come <code>awesome-claude-design</code> mostrano workflow basati su file <code>DESIGN.md</code> per creare linee visuali più consistenti.</li>
+      </ul>
+
+      <h3>3) Raccomandazione pratica per questo corso</h3>
+      <p>Usa i capitoli core come programma principale; usa questo addendum come livello di controllo qualità continuo: quando trovi una novità nel prodotto, verifica prima su fonti ufficiali, poi valida con pratica reale/community.</p>
+    </section>
+
+    <section class="panel sources" id="fonti">
+      <h2>Fonti Verificate</h2>
+      <ol>
+        <li><a href="https://www.anthropic.com/news/claude-design-anthropic-labs?cam=claude" target="_blank" rel="noopener noreferrer">Anthropic - Introducing Claude Design by Anthropic Labs (17 Apr 2026)</a></li>
+        <li><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener noreferrer">Anthropic - Introducing Claude Opus 4.7 (16 Apr 2026)</a></li>
+        <li><a href="https://www.anthropic.com/news/model-context-protocol?curius=1051" target="_blank" rel="noopener noreferrer">Anthropic - Introducing the Model Context Protocol (25 Nov 2024)</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14604416-commencer-avec-claude-design" target="_blank" rel="noopener noreferrer">Claude Help Center - Get started with Claude Design (pagina localizzata)</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14604397-configurez-votre-systeme-de-design-dans-claude-design" target="_blank" rel="noopener noreferrer">Claude Help Center - Set up your design system in Claude Design</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14604406-guide-d-administration-claude-design-pour-les-plans-team-et-enterprise" target="_blank" rel="noopener noreferrer">Claude Help Center - Admin guide for Team/Enterprise</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14667344-utilisation-et-tarification-de-l-abonnement-claude-design" target="_blank" rel="noopener noreferrer">Claude Help Center - Claude Design subscription usage and pricing</a></li>
+        <li><a href="https://www.canva.com/newsroom/news/canva-claude-design/" target="_blank" rel="noopener noreferrer">Canva Newsroom - Introducing Canva in Claude Design (17 Apr 2026)</a></li>
+        <li><a href="https://techcrunch.com/2026/04/17/anthropic-launches-claude-design-a-new-product-for-creating-quick-visuals/" target="_blank" rel="noopener noreferrer">TechCrunch - Anthropic launches Claude Design (17 Apr 2026)</a></li>
+        <li><a href="https://www.reddit.com/r/ClaudeAI/comments/1soqutr/10_hours_of_claude_design_my_thoughts/" target="_blank" rel="noopener noreferrer">Reddit r/ClaudeAI - 10 Hours of Claude Design</a></li>
+        <li><a href="https://www.reddit.com/r/ClaudeAI/comments/1spxi2f/claude_design_is_incredible/" target="_blank" rel="noopener noreferrer">Reddit r/ClaudeAI - Claude Design is Incredible</a></li>
+        <li><a href="https://www.reddit.com/r/ClaudeAI/comments/1sq27bs/my_designers_thoughts_on_claude_design/" target="_blank" rel="noopener noreferrer">Reddit r/ClaudeAI - Designer perspective</a></li>
+        <li><a href="https://github.com/VoltAgent/awesome-claude-design" target="_blank" rel="noopener noreferrer">GitHub - VoltAgent/awesome-claude-design</a></li>
+      </ol>
+      <p class="muted">Nota: le fonti community sono utili per tattiche operative e problemi reali d'uso, ma non sostituiscono documentazione e policy ufficiali.</p>
+    </section>
+  </div>
+</body>
+</html>

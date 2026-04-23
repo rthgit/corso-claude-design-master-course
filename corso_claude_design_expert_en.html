@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Design - Complete Master Course (Beginner to Expert)</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --surface: #111924;
+      --text: #f5f8ff;
+      --muted: #c8d5ef;
+      --accent: #ffd166;
+      --accent-2: #8bd3ff;
+      --border: #2a3b55;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #0b0f14 0%, #0f1825 100%);
+      color: var(--text);
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 18px 64px; }
+    .hero {
+      background: linear-gradient(135deg, #1e2e44 0%, #162233 55%, #15202f 100%);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 26px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 32px rgba(0,0,0,.35);
+    }
+    .hero h1 { margin: 0 0 10px; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; }
+    .hero p { color: var(--muted); margin: 8px 0; }
+    .badge {
+      display:inline-block; margin: 8px 8px 0 0; padding:4px 10px;
+      border:1px solid #3f5473; border-radius:999px; background:#24344d; color:#eff5ff;
+      font-size:.82rem; font-weight:600;
+    }
+    .actions { margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap; }
+    .btn {
+      border:none; border-radius:10px; padding:10px 14px; font-weight:700; cursor:pointer;
+      text-decoration:none; display:inline-block;
+    }
+    .btn.primary { background: var(--accent); color:#1d1400; }
+    .btn.secondary { background:#263a54; color:#eef6ff; border:1px solid #415a7e; }
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    h2 {
+      margin: 1.1em 0 .6em;
+      font-size: 1.45rem;
+      color: #fff4d0;
+      border-bottom: 1px solid #2a3b55;
+      padding-bottom: 8px;
+    }
+    h3 { margin: 1em 0 .5em; font-size: 1.2rem; color:#dbe9ff; }
+    p, li { color:#e9f0ff; }
+    ul, ol { margin: .4em 0 1.1em 1.25em; }
+    li { margin: .32em 0; }
+    code {
+      background:#0d141f; border:1px solid #2a3b55; color:#ffe5a8;
+      padding:2px 6px; border-radius:6px;
+      font-family: Consolas, "SFMono-Regular", Menlo, Monaco, monospace;
+      font-size: .93em;
+    }
+    pre {
+      overflow:auto; background:#07101a; border:1px solid #2b3f5d;
+      border-radius:10px; padding:12px; color:#f3f8ff;
+    }
+    table { width:100%; border-collapse:collapse; margin: 10px 0 14px; }
+    th, td { border:1px solid #2a3b55; padding:10px; text-align:left; vertical-align:top; }
+    th { background:#1a2a40; color:#fff0be; }
+    a { color:#a4d9ff; }
+    .small { color: var(--muted); font-size: .93rem; }
+    .level { display:inline-block; background:#27384f; border:1px solid #415a7e; border-radius:6px; padding:3px 8px; font-size:.8rem; font-weight:700; }
+    .callout { border-left:4px solid var(--accent-2); background:#132437; padding:10px 12px; border-radius:0 8px 8px 0; }
+    @media print {
+      @page { size: A4; margin: 12mm; }
+      body { background:white !important; color:#111 !important; }
+      .hero, .panel { background:white !important; border-color:#bbb !important; box-shadow:none !important; }
+      .actions { display:none !important; }
+      h2 { color:#111 !important; border-bottom-color:#ccc !important; }
+      p, li { color:#111 !important; }
+      table, th, td { border-color:#bbb !important; color:#111 !important; }
+      th { background:#eceff4 !important; }
+      code, pre { background:#f5f7fa !important; border-color:#c9d2df !important; color:#111 !important; }
+      a { color:#0b4a88 !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <h1>Claude Design Master Course (English Edition)</h1>
+      <p>Complete downloadable training path from foundations to expert workflows, including verified official references and practical community tactics.</p>
+      <div>
+        <span class="badge">Updated: April 23, 2026</span>
+        <span class="badge">English Edition</span>
+        <span class="badge">Print-ready PDF</span>
+      </div>
+      <div class="actions">
+        <button class="btn primary" onclick="window.print()">Download / Print PDF</button>
+        <a class="btn secondary" href="#sources">Sources</a>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>How To Use This Course</h2>
+      <p>This course is organized in 5 progressive levels. Do not skip levels: each one builds skills required by the next.</p>
+      <table>
+        <thead>
+          <tr><th>Level</th><th>Name</th><th>Who It Is For</th><th>Estimated Time</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>Foundations</td><td>First-time Claude Design users</td><td>30 min</td></tr>
+          <tr><td>1</td><td>Beginner</td><td>People who want first practical output fast</td><td>60 min</td></tr>
+          <tr><td>2</td><td>Intermediate</td><td>Regular professional users</td><td>90 min</td></tr>
+          <tr><td>3</td><td>Advanced</td><td>PMs, founders, marketers, senior makers</td><td>120 min</td></tr>
+          <tr><td>4</td><td>Expert</td><td>Team leads, enterprise, dev handoff owners</td><td>90 min</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Access requirement: Claude Pro, Max, Team, or Enterprise plan.</p>
+    </section>
+
+    <section class="panel">
+      <span class="level">LEVEL 0</span>
+      <h2>Foundations</h2>
+      <h3>What Claude Design Is (and Is Not)</h3>
+      <p>Claude Design is a conversational visual prototyping workspace. It is not a photo generator and not a full pixel-perfect replacement for high-end Figma production workflows.</p>
+      <ul>
+        <li>Not: Midjourney/DALL-E style photorealistic image generation.</li>
+        <li>Not: Photoshop/Illustrator style manual graphics editing.</li>
+        <li>Yes: structured visual reasoning + fast prototype generation from goals and context.</li>
+      </ul>
+      <h3>Core Interface Zones</h3>
+      <ol>
+        <li><strong>Chat input:</strong> broad direction, structure changes, narrative intent.</li>
+        <li><strong>Reference upload:</strong> screenshots, PDFs, slides, docs, datasets.</li>
+        <li><strong>Web capture:</strong> extracts visual DNA from existing URLs.</li>
+        <li><strong>Inline tweaks:</strong> click element and request precise local edits.</li>
+        <li><strong>Export panel:</strong> PDF, PPTX, HTML, Canva, and handoff paths.</li>
+      </ol>
+    </section>
+
+    <section class="panel">
+      <span class="level">LEVEL 1</span>
+      <h2>Beginner</h2>
+      <h3>The P.A.T.C. Prompt Framework</h3>
+      <ul>
+        <li><strong>P - Product:</strong> landing page, deck, prototype, one-pager.</li>
+        <li><strong>A - Audience:</strong> who will consume this design.</li>
+        <li><strong>T - Target:</strong> what they must understand or do after seeing it.</li>
+        <li><strong>C - Character:</strong> visual tone in a few clear adjectives.</li>
+      </ul>
+      <pre><code>Create a landing page for a B2B analytics platform.
+Audience: finance directors at SMBs.
+Target: book a demo call.
+Character: authoritative, data-centric, clean.
+Include: strong headline, 3 feature blocks with metrics, social proof, final CTA.</code></pre>
+      <h3>First Iteration Methods</h3>
+      <ul>
+        <li>Chat for structural changes.</li>
+        <li>Inline tweaks for specific elements.</li>
+        <li>Direct text edit for copy updates.</li>
+        <li>Adjustment knobs/sliders for spacing, scale, and visual intensity.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <span class="level">LEVEL 2</span>
+      <h2>Intermediate</h2>
+      <h3>Design System Automation</h3>
+      <p>Best quality usually comes from codebase extraction, then brand files, then web capture if code access is unavailable.</p>
+      <ol>
+        <li><strong>From codebase:</strong> extracts tokens/components from CSS/Tailwind/frontend patterns.</li>
+        <li><strong>From brand docs:</strong> parses visual guidelines and references.</li>
+        <li><strong>From URL capture:</strong> infers style from production interface.</li>
+      </ol>
+      <h3>Collaboration Modes</h3>
+      <ul>
+        <li>Private</li>
+        <li>Internal link (view)</li>
+        <li>Edit access (invited collaborators)</li>
+      </ul>
+      <h3>Export Strategy</h3>
+      <table>
+        <thead>
+          <tr><th>Need</th><th>Best Output</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fixed shareable doc</td><td>PDF</td></tr>
+          <tr><td>Editable presentation</td><td>PPTX</td></tr>
+          <tr><td>Interactive browser demo</td><td>HTML standalone</td></tr>
+          <tr><td>Collaborative social/content workflow</td><td>Export to Canva</td></tr>
+          <tr><td>Engineering implementation handoff</td><td>Handoff package + Claude Code</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <span class="level">LEVEL 3</span>
+      <h2>Advanced</h2>
+      <h3>Layered Brief Method</h3>
+      <ol>
+        <li>Business context</li>
+        <li>Deliverable objective</li>
+        <li>Visual constraints and anti-patterns</li>
+        <li>Mandatory content structure</li>
+      </ol>
+      <h3>Deliberate Progression</h3>
+      <ol>
+        <li>Approve structure first (low-fi).</li>
+        <li>Apply visual system second.</li>
+        <li>Polish typography/spacing last.</li>
+      </ol>
+      <div class="callout">
+        <p><strong>Rule of thumb:</strong> if quality is still off after ~5 meaningful iterations, restart from a clearer brief instead of endlessly tweaking.</p>
+      </div>
+      <h3>Role-based Patterns</h3>
+      <ul>
+        <li><strong>Founders:</strong> investor decks, launch pages, product screenshots for sales narratives.</li>
+        <li><strong>PMs:</strong> feature mockups, user-testing prototypes, roadmap communication artifacts.</li>
+        <li><strong>Marketing leads:</strong> campaign-ready multi-format asset sets with consistent style.</li>
+        <li><strong>Designers:</strong> rapid exploration directions before committing to production tooling.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <span class="level">LEVEL 4</span>
+      <h2>Expert</h2>
+      <h3>Enterprise Governance</h3>
+      <ul>
+        <li>Enterprise access may be disabled by default and requires admin enablement.</li>
+        <li>Use a master design system plus controlled variants per product/brand.</li>
+        <li>Define ownership: who can change system-level tokens and components.</li>
+      </ul>
+      <h3>Handoff Bundle Thinking</h3>
+      <p>Treat handoff as design intent + implementation constraints, not only dimensions and color values.</p>
+      <pre><code>Implement this UI using the attached handoff package.
+Follow design intent for hierarchy and semantics.
+Framework: Next.js
+Styling: Tailwind
+Strict constraints: layout, tokens, type scale
+Flexible area: micro-interactions and transitions</code></pre>
+      <h3>Known Limits (and Workarounds)</h3>
+      <ul>
+        <li><strong>Complex animations:</strong> define intent in prototype, implement in code/Canva/Framer.</li>
+        <li><strong>Live data dashboards:</strong> prototype visual shell first, then wire to real data in build phase.</li>
+        <li><strong>Pixel-perfect enterprise systems:</strong> use Claude Design for speed, refine in Figma where needed.</li>
+      </ul>
+    </section>
+
+    <section class="panel">
+      <h2>Final Project (2-Hour Launch Sprint)</h2>
+      <ol>
+        <li>Set design system and upload launch brief.</li>
+        <li>Create campaign landing page (lead generation focus).</li>
+        <li>Create 10-12 slide sales deck aligned to same visual system.</li>
+        <li>Create 4 social launch creatives for LinkedIn/Instagram.</li>
+        <li>Generate handoff artifacts for engineering implementation.</li>
+      </ol>
+      <p>Deliverables in 2 hours: launch page, sales deck, social set, and implementation-ready handoff package.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Appendix A - Prompt Cheat Sheet</h2>
+      <pre><code>Create [PRODUCT] for [AUDIENCE].
+Goal: [TARGET ACTION/UNDERSTANDING].
+Visual character: [3 adjectives].
+Required structure: [ordered sections].
+Do not use: [3 anti-patterns].
+References: use uploaded files and maintain style consistency.</code></pre>
+    </section>
+
+    <section class="panel">
+      <h2>Appendix B - Quality Checklist</h2>
+      <h3>Before starting</h3>
+      <ul>
+        <li>[ ] Design system selected/configured.</li>
+        <li>[ ] References uploaded (brief, screenshots, data).</li>
+        <li>[ ] Audience + outcome clearly defined.</li>
+        <li>[ ] Final export format chosen in advance.</li>
+      </ul>
+      <h3>Before export</h3>
+      <ul>
+        <li>[ ] Structural clarity validated.</li>
+        <li>[ ] Visual consistency checked across full document.</li>
+        <li>[ ] Placeholder copy/data replaced where required.</li>
+        <li>[ ] Correct output chosen for destination workflow.</li>
+      </ul>
+    </section>
+
+    <section class="panel" id="sources">
+      <h2>Verified Sources</h2>
+      <ol>
+        <li><a href="https://www.anthropic.com/news/claude-design-anthropic-labs?cam=claude" target="_blank" rel="noopener noreferrer">Anthropic - Introducing Claude Design by Anthropic Labs (Apr 17, 2026)</a></li>
+        <li><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener noreferrer">Anthropic - Introducing Claude Opus 4.7 (Apr 16, 2026)</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14604416-commencer-avec-claude-design" target="_blank" rel="noopener noreferrer">Claude Help Center - Get started with Claude Design</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14604397-configurez-votre-systeme-de-design-dans-claude-design" target="_blank" rel="noopener noreferrer">Claude Help Center - Set up your design system in Claude Design</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14604406-guide-d-administration-claude-design-pour-les-plans-team-et-enterprise" target="_blank" rel="noopener noreferrer">Claude Help Center - Team/Enterprise admin guide</a></li>
+        <li><a href="https://support.claude.com/fr/articles/14667344-utilisation-et-tarification-de-l-abonnement-claude-design" target="_blank" rel="noopener noreferrer">Claude Help Center - Subscription usage and pricing</a></li>
+        <li><a href="https://www.canva.com/newsroom/news/canva-claude-design/" target="_blank" rel="noopener noreferrer">Canva Newsroom - Introducing Canva in Claude Design</a></li>
+        <li><a href="https://www.reddit.com/r/ClaudeAI/comments/1soqutr/10_hours_of_claude_design_my_thoughts/" target="_blank" rel="noopener noreferrer">Reddit - 10 Hours of Claude Design</a></li>
+        <li><a href="https://www.reddit.com/r/ClaudeAI/comments/1spxi2f/claude_design_is_incredible/" target="_blank" rel="noopener noreferrer">Reddit - Claude Design is Incredible</a></li>
+        <li><a href="https://github.com/VoltAgent/awesome-claude-design" target="_blank" rel="noopener noreferrer">GitHub - awesome-claude-design</a></li>
+      </ol>
+      <p class="small">Community/dev sources are used for practical heuristics; official docs remain the source of truth for capabilities, pricing, and policy.</p>
+    </section>
+  </div>
+</body>
+</html>
